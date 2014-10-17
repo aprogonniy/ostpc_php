@@ -3,14 +3,17 @@ class ControllerModuleFeatured extends Controller {
 	protected function index($setting) {
 		$this->language->load('module/featured'); 
 
-		$this->data['heading_title'] = $this->language->get('heading_title');
-		
+      	$this->data['heading_title'] = $this->language->get('heading_title');
+		$this->data['text_price'] = $this->language->get('text_price');
+		$this->data['button_wishlist'] = $this->language->get('button_wishlist');
+		$this->data['button_compare'] = $this->language->get('button_compare');	
 		$this->data['button_cart'] = $this->language->get('button_cart');
-		
+		$this->data['button_details'] = $this->language->get('button_details');
+		$this->data['reviews'] = $this->language->get('reviews');
 		$this->load->model('catalog/product'); 
 		
 		$this->load->model('tool/image');
-
+		$this->load->model('catalog/review');
 		$this->data['products'] = array();
 
 		$products = explode(',', $this->config->get('featured_product'));		
@@ -23,7 +26,7 @@ class ControllerModuleFeatured extends Controller {
 		
 		foreach ($products as $product_id) {
 			$product_info = $this->model_catalog_product->getProduct($product_id);
-			
+			$review_total = $this->model_catalog_review->getTotalReviewsByProductId($product_info['product_id']);
 			if ($product_info) {
 				if ($product_info['image']) {
 					$image = $this->model_tool_image->resize($product_info['image'], $setting['image_width'], $setting['image_height']);
@@ -57,7 +60,9 @@ class ControllerModuleFeatured extends Controller {
 					'special' 	 => $special,
 					'rating'     => $rating,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']),
-					'href'    	 => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])
+					'href'    	 => $this->url->link('product/product', 'product_id=' . $product_info['product_id']),
+					'description' =>strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')) . '..',
+					'reviews'    => $review_total
 				);
 			}
 		}

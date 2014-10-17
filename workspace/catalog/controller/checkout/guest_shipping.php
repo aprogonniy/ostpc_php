@@ -1,6 +1,6 @@
 <?php 
 class ControllerCheckoutGuestShipping extends Controller {
-	public function index() {
+  	public function index() {	
 		$this->language->load('checkout/checkout');
 		
 		$this->data['text_select'] = $this->language->get('text_select');
@@ -140,7 +140,7 @@ class ControllerCheckoutGuestShipping extends Controller {
 				$json['error']['country'] = $this->language->get('error_country');
 			}
 			
-			if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '') {
+			if ($this->request->post['zone_id'] == '') {
 				$json['error']['zone'] = $this->language->get('error_zone');
 			}	
 		}

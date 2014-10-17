@@ -59,7 +59,7 @@ class ControllerCheckoutShippingAddress extends Controller {
 		}
 				
 		$this->response->setOutput($this->render());
-	}
+  	}	
 	
 	public function validate() {
 		$this->language->load('checkout/checkout');
@@ -101,7 +101,7 @@ class ControllerCheckoutShippingAddress extends Controller {
 		}
 								
 		if (!$json) {
-			if (isset($this->request->post['shipping_address']) && $this->request->post['shipping_address'] == 'existing') {
+			if ($this->request->post['shipping_address'] == 'existing') {
 				$this->load->model('account/address');
 				
 				if (empty($this->request->post['address_id'])) {
@@ -142,7 +142,7 @@ class ControllerCheckoutShippingAddress extends Controller {
 					$json['error']['lastname'] = $this->language->get('error_lastname');
 				}
 		
-				if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
+				if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 64)) {
 					$json['error']['address_1'] = $this->language->get('error_address_1');
 				}
 		
@@ -162,7 +162,7 @@ class ControllerCheckoutShippingAddress extends Controller {
 					$json['error']['country'] = $this->language->get('error_country');
 				}
 				
-				if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '') {
+				if ($this->request->post['zone_id'] == '') {
 					$json['error']['zone'] = $this->language->get('error_zone');
 				}
 				

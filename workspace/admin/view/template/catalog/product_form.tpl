@@ -11,10 +11,10 @@
   <div class="box">
     <div class="heading">
       <h1><img src="view/image/product.png" alt="" /> <?php echo $heading_title; ?></h1>
-      <div class="buttons"><a onclick="$('#form').submit();" class="button"><?php echo $button_save; ?></a><a href="<?php echo $cancel; ?>" class="button"><?php echo $button_cancel; ?></a></div>
+      <div class="buttons"><a onclick="$('#form').submit();" class="button"><?php echo $button_save; ?></a><a onclick="location = '<?php echo $cancel; ?>';" class="button"><?php echo $button_cancel; ?></a></div>
     </div>
     <div class="content">
-      <div id="tabs" class="htabs"><a href="#tab-general"><?php echo $tab_general; ?></a><a href="#tab-data"><?php echo $tab_data; ?></a><a href="#tab-links"><?php echo $tab_links; ?></a><a href="#tab-attribute"><?php echo $tab_attribute; ?></a><a href="#tab-option"><?php echo $tab_option; ?></a><a href="#tab-profile"><?php echo $tab_profile; ?></a><a href="#tab-discount"><?php echo $tab_discount; ?></a><a href="#tab-special"><?php echo $tab_special; ?></a><a href="#tab-image"><?php echo $tab_image; ?></a><a href="#tab-reward"><?php echo $tab_reward; ?></a><a href="#tab-design"><?php echo $tab_design; ?></a></div>
+      <div id="tabs" class="htabs"><a href="#tab-general"><?php echo $tab_general; ?></a><a href="#tab-data"><?php echo $tab_data; ?></a><a href="#tab-links"><?php echo $tab_links; ?></a><a href="#tab-attribute"><?php echo $tab_attribute; ?></a><a href="#tab-option"><?php echo $tab_option; ?></a><a href="#tab-discount"><?php echo $tab_discount; ?></a><a href="#tab-special"><?php echo $tab_special; ?></a><a href="#tab-image"><?php echo $tab_image; ?></a><a href="#tab-reward"><?php echo $tab_reward; ?></a><a href="#tab-design"><?php echo $tab_design; ?></a></div>
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
         <div id="tab-general">
           <div id="languages" class="htabs">
@@ -46,7 +46,7 @@
               </tr>
               <tr>
                 <td><?php echo $entry_tag; ?></td>
-                <td><input type="text" name="product_description[<?php echo $language['language_id']; ?>][tag]" value="<?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['tag'] : ''; ?>" size="80" /></td>
+                <td><input type="text" name="product_tag[<?php echo $language['language_id']; ?>]" value="<?php echo isset($product_tag[$language['language_id']]) ? $product_tag[$language['language_id']] : ''; ?>" size="80" /></td>
               </tr>
             </table>
           </div>
@@ -70,28 +70,12 @@
               <td><input type="text" name="upc" value="<?php echo $upc; ?>" /></td>
             </tr>
             <tr>
-              <td><?php echo $entry_ean; ?></td>
-              <td><input type="text" name="ean" value="<?php echo $ean; ?>" /></td>
-            </tr>
-            <tr>
-              <td><?php echo $entry_jan; ?></td>
-              <td><input type="text" name="jan" value="<?php echo $jan; ?>" /></td>
-            </tr>
-            <tr>
-              <td><?php echo $entry_isbn; ?></td>
-              <td><input type="text" name="isbn" value="<?php echo $isbn; ?>" /></td>
-            </tr>
-            <tr>
-              <td><?php echo $entry_mpn; ?></td>
-              <td><input type="text" name="mpn" value="<?php echo $mpn; ?>" /></td>
-            </tr>
-            <tr>
               <td><?php echo $entry_location; ?></td>
               <td><input type="text" name="location" value="<?php echo $location; ?>" /></td>
             </tr>
             <tr>
-                <td><?php echo $entry_price; ?></td>
-                <td><input type="text" name="price" value="<?php echo $price; ?>" /></td>
+              <td><?php echo $entry_price; ?></td>
+              <td><input type="text" name="price" value="<?php echo $price; ?>" /></td>
             </tr>
             <tr>
               <td><?php echo $entry_tax_class; ?></td>
@@ -222,40 +206,36 @@
           <table class="form">
             <tr>
               <td><?php echo $entry_manufacturer; ?></td>
-              <td><input type="text" name="manufacturer" value="<?php echo $manufacturer ?>" /><input type="hidden" name="manufacturer_id" value="<?php echo $manufacturer_id; ?>" /></td>
+              <td><select name="manufacturer_id">
+                  <option value="0" selected="selected"><?php echo $text_none; ?></option>
+                  <?php foreach ($manufacturers as $manufacturer) { ?>
+                  <?php if ($manufacturer['manufacturer_id'] == $manufacturer_id) { ?>
+                  <option value="<?php echo $manufacturer['manufacturer_id']; ?>" selected="selected"><?php echo $manufacturer['name']; ?></option>
+                  <?php } else { ?>
+                  <option value="<?php echo $manufacturer['manufacturer_id']; ?>"><?php echo $manufacturer['name']; ?></option>
+                  <?php } ?>
+                  <?php } ?>
+                </select></td>
             </tr>
             <tr>
               <td><?php echo $entry_category; ?></td>
-              <td><input type="text" name="category" value="" /></td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <td><div id="product-category" class="scrollbox">
+              <td><div class="scrollbox">
                   <?php $class = 'odd'; ?>
-                  <?php foreach ($product_categories as $product_category) { ?>
+                  <?php foreach ($categories as $category) { ?>
                   <?php $class = ($class == 'even' ? 'odd' : 'even'); ?>
-                  <div id="product-category<?php echo $product_category['category_id']; ?>" class="<?php echo $class; ?>"><?php echo $product_category['name']; ?><img src="view/image/delete.png" alt="" />
-                    <input type="hidden" name="product_category[]" value="<?php echo $product_category['category_id']; ?>" />
+                  <div class="<?php echo $class; ?>">
+                    <?php if (in_array($category['category_id'], $product_category)) { ?>
+                    <input type="checkbox" name="product_category[]" value="<?php echo $category['category_id']; ?>" checked="checked" />
+                    <?php echo $category['name']; ?>
+                    <?php } else { ?>
+                    <input type="checkbox" name="product_category[]" value="<?php echo $category['category_id']; ?>" />
+                    <?php echo $category['name']; ?>
+                    <?php } ?>
                   </div>
                   <?php } ?>
-                </div></td>
-            </tr> 
-            <tr>
-              <td><?php echo $entry_filter; ?></td>
-              <td><input type="text" name="filter" value="" /></td>
+                </div>
+                <a onclick="$(this).parent().find(':checkbox').attr('checked', true);"><?php echo $text_select_all; ?></a> / <a onclick="$(this).parent().find(':checkbox').attr('checked', false);"><?php echo $text_unselect_all; ?></a></td>
             </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <td><div id="product-filter" class="scrollbox">
-                  <?php $class = 'odd'; ?>
-                  <?php foreach ($product_filters as $product_filter) { ?>
-                  <?php $class = ($class == 'even' ? 'odd' : 'even'); ?>
-                  <div id="product-filter<?php echo $product_filter['filter_id']; ?>" class="<?php echo $class; ?>"><?php echo $product_filter['name']; ?><img src="view/image/delete.png" alt="" />
-                    <input type="hidden" name="product_filter[]" value="<?php echo $product_filter['filter_id']; ?>" />
-                  </div>
-                  <?php } ?>
-                </div></td>
-            </tr>                       
             <tr>
               <td><?php echo $entry_store; ?></td>
               <td><div class="scrollbox">
@@ -285,16 +265,18 @@
             </tr>
             <tr>
               <td><?php echo $entry_download; ?></td>
-              <td><input type="text" name="download" value="" /></td>
-            </tr>			
-            <tr>
-              <td>&nbsp;</td>
-              <td><div id="product-download" class="scrollbox">
+              <td><div class="scrollbox">
                   <?php $class = 'odd'; ?>
-                  <?php foreach ($product_downloads as $product_download) { ?>
+                  <?php foreach ($downloads as $download) { ?>
                   <?php $class = ($class == 'even' ? 'odd' : 'even'); ?>
-                  <div id="product-download<?php echo $product_download['download_id']; ?>" class="<?php echo $class; ?>"> <?php echo $product_download['name']; ?><img src="view/image/delete.png" alt="" />
-                    <input type="hidden" name="product_download[]" value="<?php echo $product_download['download_id']; ?>" />
+                  <div class="<?php echo $class; ?>">
+                    <?php if (in_array($download['download_id'], $product_download)) { ?>
+                    <input type="checkbox" name="product_download[]" value="<?php echo $download['download_id']; ?>" checked="checked" />
+                    <?php echo $download['name']; ?>
+                    <?php } else { ?>
+                    <input type="checkbox" name="product_download[]" value="<?php echo $download['download_id']; ?>" />
+                    <?php echo $download['name']; ?>
+                    <?php } ?>
                   </div>
                   <?php } ?>
                 </div></td>
@@ -309,7 +291,7 @@
                   <?php $class = 'odd'; ?>
                   <?php foreach ($product_related as $product_related) { ?>
                   <?php $class = ($class == 'even' ? 'odd' : 'even'); ?>
-                  <div id="product-related<?php echo $product_related['product_id']; ?>" class="<?php echo $class; ?>"> <?php echo $product_related['name']; ?><img src="view/image/delete.png" alt="" />
+                  <div id="product-related<?php echo $product_related['product_id']; ?>" class="<?php echo $class; ?>"> <?php echo $product_related['name']; ?><img src="view/image/delete.png" />
                     <input type="hidden" name="product_related[]" value="<?php echo $product_related['product_id']; ?>" />
                   </div>
                   <?php } ?>
@@ -353,7 +335,7 @@
           <div id="vtab-option" class="vtabs">
             <?php $option_row = 0; ?>
             <?php foreach ($product_options as $product_option) { ?>
-            <a href="#tab-option-<?php echo $option_row; ?>" id="option-<?php echo $option_row; ?>"><?php echo $product_option['name']; ?>&nbsp;<img src="view/image/delete.png" alt="" onclick="$('#option-<?php echo $option_row; ?>').remove(); $('#tab-option-<?php echo $option_row; ?>').remove(); $('#vtabs a:first').trigger('click'); return false;" /></a>
+            <a href="#tab-option-<?php echo $option_row; ?>" id="option-<?php echo $option_row; ?>"><?php echo $product_option['name']; ?>&nbsp;<img src="view/image/delete.png" alt="" onclick="$('#vtabs a:first').trigger('click'); $('#option-<?php echo $option_row; ?>').remove(); $('#tab-option-<?php echo $option_row; ?>').remove(); return false;" /></a>
             <?php $option_row++; ?>
             <?php } ?>
             <span id="option-add">
@@ -517,58 +499,6 @@
           </div>
           <?php $option_row++; ?>
           <?php } ?>
-        </div>
-        <div id="tab-profile">
-            <table class="list">
-                <thead>
-                    <tr>
-                        <td class="left"><?php echo $entry_profile ?></td>
-                        <td class="left"><?php echo $entry_customer_group ?></td>
-                        <td class="left"></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $profileCount = 0; ?>
-                    <?php foreach ($product_profiles as $product_profile): ?>
-                        <?php $profileCount++ ?>
-                    
-                        <tr id="profile-row<?php echo $profileCount ?>">
-                            <td class="left">
-                                <select name="product_profiles[<?php echo $profileCount ?>][profile_id]">
-                                    <?php foreach ($profiles as $profile): ?>
-                                        <?php if ($profile['profile_id'] == $product_profile['profile_id']): ?>
-                                            <option value="<?php echo $profile['profile_id'] ?>" selected="selected"><?php echo $profile['name'] ?></option>
-                                        <?php else: ?>
-                                            <option value="<?php echo $profile['profile_id'] ?>"><?php echo $profile['name'] ?></option>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </select>
-                            </td>
-                            <td class="left">
-                                <select name="product_profiles[<?php echo $profileCount ?>][customer_group_id]">
-                                    <?php foreach ($customer_groups as $customer_group): ?>
-                                        <?php if ($customer_group['customer_group_id'] == $product_profile['customer_group_id']): ?>
-                                            <option value="<?php echo $customer_group['customer_group_id'] ?>" selected="selected"><?php echo $customer_group['name'] ?></option>
-                                        <?php else: ?>
-                                            <option value="<?php echo $customer_group['customer_group_id'] ?>"><?php echo $customer_group['name'] ?></option>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </select>
-                            </td>
-                            <td class="left">
-                                <a class="button" onclick="$('#profile-row<?php echo $profileCount ?>').remove()"><?php echo $button_remove ?></a>
-                            </td>
-                        </tr>
-                    
-                    <?php endforeach; ?>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2"></td>
-                        <td class="left"><a onclick="addProfile()" class="button"><?php echo $button_add_profile ?></a></td>
-                    </tr>
-                </tfoot>
-            </table>
         </div>
         <div id="tab-discount">
           <table id="discount" class="list">
@@ -771,170 +701,8 @@ CKEDITOR.replace('description<?php echo $language['language_id']; ?>', {
 <?php } ?>
 //--></script> 
 <script type="text/javascript"><!--
-$.widget('custom.catcomplete', $.ui.autocomplete, {
-	_renderMenu: function(ul, items) {
-		var self = this, currentCategory = '';
-		
-		$.each(items, function(index, item) {
-			if (item.category != currentCategory) {
-				ul.append('<li class="ui-autocomplete-category">' + item.category + '</li>');
-				
-				currentCategory = item.category;
-			}
-			
-			self._renderItem(ul, item);
-		});
-	}
-});
-
-// Manufacturer
-$('input[name=\'manufacturer\']').autocomplete({
-	delay: 500,
-	source: function(request, response) {
-		$.ajax({
-			url: 'index.php?route=catalog/manufacturer/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
-			dataType: 'json',
-			success: function(json) {		
-				response($.map(json, function(item) {
-					return {
-						label: item.name,
-						value: item.manufacturer_id
-					}
-				}));
-			}
-		});
-	}, 
-	select: function(event, ui) {
-		$('input[name=\'manufacturer\']').attr('value', ui.item.label);
-		$('input[name=\'manufacturer_id\']').attr('value', ui.item.value);
-	
-		return false;
-	},
-	focus: function(event, ui) {
-      return false;
-   }
-});
-
-// Category
-$('input[name=\'category\']').autocomplete({
-	delay: 500,
-	source: function(request, response) {
-		$.ajax({
-			url: 'index.php?route=catalog/category/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
-			dataType: 'json',
-			success: function(json) {		
-				response($.map(json, function(item) {
-					return {
-						label: item.name,
-						value: item.category_id
-					}
-				}));
-			}
-		});
-	}, 
-	select: function(event, ui) {
-		$('#product-category' + ui.item.value).remove();
-		
-		$('#product-category').append('<div id="product-category' + ui.item.value + '">' + ui.item.label + '<img src="view/image/delete.png" alt="" /><input type="hidden" name="product_category[]" value="' + ui.item.value + '" /></div>');
-
-		$('#product-category div:odd').attr('class', 'odd');
-		$('#product-category div:even').attr('class', 'even');
-				
-		return false;
-	},
-	focus: function(event, ui) {
-      return false;
-   }
-});
-
-$('#product-category div img').live('click', function() {
-	$(this).parent().remove();
-	
-	$('#product-category div:odd').attr('class', 'odd');
-	$('#product-category div:even').attr('class', 'even');	
-});
-
-// Filter
-$('input[name=\'filter\']').autocomplete({
-	delay: 500,
-	source: function(request, response) {
-		$.ajax({
-			url: 'index.php?route=catalog/filter/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
-			dataType: 'json',
-			success: function(json) {		
-				response($.map(json, function(item) {
-					return {
-						label: item.name,
-						value: item.filter_id
-					}
-				}));
-			}
-		});
-	}, 
-	select: function(event, ui) {
-		$('#product-filter' + ui.item.value).remove();
-		
-		$('#product-filter').append('<div id="product-filter' + ui.item.value + '">' + ui.item.label + '<img src="view/image/delete.png" alt="" /><input type="hidden" name="product_filter[]" value="' + ui.item.value + '" /></div>');
-
-		$('#product-filter div:odd').attr('class', 'odd');
-		$('#product-filter div:even').attr('class', 'even');
-				
-		return false;
-	},
-	focus: function(event, ui) {
-      return false;
-   }
-});
-
-$('#product-filter div img').live('click', function() {
-	$(this).parent().remove();
-	
-	$('#product-filter div:odd').attr('class', 'odd');
-	$('#product-filter div:even').attr('class', 'even');	
-});
-
-// Downloads
-$('input[name=\'download\']').autocomplete({
-	delay: 500,
-	source: function(request, response) {
-		$.ajax({
-			url: 'index.php?route=catalog/download/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
-			dataType: 'json',
-			success: function(json) {		
-				response($.map(json, function(item) {
-					return {
-						label: item.name,
-						value: item.download_id
-					}
-				}));
-			}
-		});
-	}, 
-	select: function(event, ui) {
-		$('#product-download' + ui.item.value).remove();
-		
-		$('#product-download').append('<div id="product-download' + ui.item.value + '">' + ui.item.label + '<img src="view/image/delete.png" alt="" /><input type="hidden" name="product_download[]" value="' + ui.item.value + '" /></div>');
-
-		$('#product-download div:odd').attr('class', 'odd');
-		$('#product-download div:even').attr('class', 'even');
-				
-		return false;
-	},
-	focus: function(event, ui) {
-      return false;
-   }
-});
-
-$('#product-download div img').live('click', function() {
-	$(this).parent().remove();
-	
-	$('#product-download div:odd').attr('class', 'odd');
-	$('#product-download div:even').attr('class', 'even');	
-});
-
-// Related
 $('input[name=\'related\']').autocomplete({
-	delay: 500,
+	delay: 0,
 	source: function(request, response) {
 		$.ajax({
 			url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
@@ -948,11 +716,12 @@ $('input[name=\'related\']').autocomplete({
 				}));
 			}
 		});
+		
 	}, 
 	select: function(event, ui) {
 		$('#product-related' + ui.item.value).remove();
 		
-		$('#product-related').append('<div id="product-related' + ui.item.value + '">' + ui.item.label + '<img src="view/image/delete.png" alt="" /><input type="hidden" name="product_related[]" value="' + ui.item.value + '" /></div>');
+		$('#product-related').append('<div id="product-related' + ui.item.value + '">' + ui.item.label + '<img src="view/image/delete.png" /><input type="hidden" name="product_related[]" value="' + ui.item.value + '" /></div>');
 
 		$('#product-related div:odd').attr('class', 'odd');
 		$('#product-related div:even').attr('class', 'even');
@@ -994,9 +763,25 @@ function addAttribute() {
 	attribute_row++;
 }
 
+$.widget('custom.catcomplete', $.ui.autocomplete, {
+	_renderMenu: function(ul, items) {
+		var self = this, currentCategory = '';
+		
+		$.each(items, function(index, item) {
+			if (item.category != currentCategory) {
+				ul.append('<li class="ui-autocomplete-category">' + item.category + '</li>');
+				
+				currentCategory = item.category;
+			}
+			
+			self._renderItem(ul, item);
+		});
+	}
+});
+
 function attributeautocomplete(attribute_row) {
 	$('input[name=\'product_attribute[' + attribute_row + '][name]\']').catcomplete({
-		delay: 500,
+		delay: 0,
 		source: function(request, response) {
 			$.ajax({
 				url: 'index.php?route=catalog/attribute/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
@@ -1032,7 +817,7 @@ $('#attribute tbody').each(function(index, element) {
 var option_row = <?php echo $option_row; ?>;
 
 $('input[name=\'option\']').catcomplete({
-	delay: 500,
+	delay: 0,
 	source: function(request, response) {
 		$.ajax({
 			url: 'index.php?route=catalog/option/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
@@ -1141,7 +926,7 @@ $('input[name=\'option\']').catcomplete({
 		
 		$('#tab-option').append(html);
 		
-		$('#option-add').before('<a href="#tab-option-' + option_row + '" id="option-' + option_row + '">' + ui.item.label + '&nbsp;<img src="view/image/delete.png" alt="" onclick="$(\'#option-' + option_row + '\').remove(); $(\'#tab-option-' + option_row + '\').remove(); $(\'#vtab-option a:first\').trigger(\'click\'); return false;" /></a>');
+		$('#option-add').before('<a href="#tab-option-' + option_row + '" id="option-' + option_row + '">' + ui.item.label + '&nbsp;<img src="view/image/delete.png" alt="" onclick="$(\'#vtab-option a:first\').trigger(\'click\'); $(\'#option-' + option_row + '\').remove(); $(\'#tab-option-' + option_row + '\').remove(); return false;" /></a>');
 		
 		$('#vtab-option a').tabs();
 		
@@ -1210,7 +995,7 @@ function addDiscount() {
 	html += '  <tr>'; 
     html += '    <td class="left"><select name="product_discount[' + discount_row + '][customer_group_id]">';
     <?php foreach ($customer_groups as $customer_group) { ?>
-    html += '      <option value="<?php echo $customer_group['customer_group_id']; ?>"><?php echo addslashes($customer_group['name']); ?></option>';
+    html += '      <option value="<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></option>';
     <?php } ?>
     html += '    </select></td>';		
     html += '    <td class="right"><input type="text" name="product_discount[' + discount_row + '][quantity]" value="" size="2" /></td>';
@@ -1237,7 +1022,7 @@ function addSpecial() {
 	html += '  <tr>'; 
     html += '    <td class="left"><select name="product_special[' + special_row + '][customer_group_id]">';
     <?php foreach ($customer_groups as $customer_group) { ?>
-    html += '      <option value="<?php echo $customer_group['customer_group_id']; ?>"><?php echo addslashes($customer_group['name']); ?></option>';
+    html += '      <option value="<?php echo $customer_group['customer_group_id']; ?>"><?php echo $customer_group['name']; ?></option>';
     <?php } ?>
     html += '    </select></td>';		
     html += '    <td class="right"><input type="text" name="product_special[' + special_row + '][priority]" value="" size="2" /></td>';
@@ -1312,63 +1097,5 @@ $('.time').timepicker({timeFormat: 'h:m'});
 $('#tabs a').tabs(); 
 $('#languages a').tabs(); 
 $('#vtab-option a').tabs();
-
-var profileCount = <?php echo $profileCount ?>;
-
-function addProfile() {
-    profileCount++;
-    
-    var html = '';
-    html += '<tr id="profile-row' + profileCount + '">';
-    html += '  <td class="left">';
-    html += '    <select name="product_profiles[' + profileCount + '][profile_id]">';
-    <?php foreach ($profiles as $profile): ?>
-    html += '      <option value="<?php echo $profile['profile_id'] ?>"><?php echo $profile['name'] ?></option>';
-    <?php endforeach; ?>
-    html += '    </select>';
-    html += '  </td>';
-    html += '  <td class="left">';
-    html += '    <select name="product_profiles[' + profileCount + '][customer_group_id]">';
-    <?php foreach ($customer_groups as $customer_group): ?>
-    html += '      <option value="<?php echo $customer_group['customer_group_id'] ?>"><?php echo $customer_group['name'] ?></option>';
-    <?php endforeach; ?>
-    html += '    <select>';
-    html += '  </td>';
-    html += '  <td class="left">';
-    html += '    <a class="button" onclick="$(\'#profile-row' + profileCount + '\').remove()"><?php echo $button_remove ?></a>';
-    html += '  </td>';
-    html += '</tr>';
-    
-    $('#tab-profile table tbody').append(html);
-}
-
-<?php if (isset($this->request->get['product_id'])) { ?>
-    function openbayLinkStatus(){
-        var product_id = '<?php echo $this->request->get['product_id']; ?>';
-        $.ajax({
-            type: 'GET',
-            url: 'index.php?route=extension/openbay/linkStatus&token=<?php echo $token; ?>&product_id='+product_id,
-            dataType: 'html',
-            success: function(data) {
-                //add the button to nav
-                $('<a href="#tab-openbay"><?php echo $tab_marketplace_links ?></a>').hide().appendTo("#tabs").fadeIn(1000);
-                $('#tab-general').before(data);
-                $('#tabs a').tabs();
-            },
-            failure: function(){
-
-            },
-            error: function() {
-
-            }
-        });
-    }
-
-    $(document).ready(function(){
-        openbayLinkStatus();
-    });
-<?php } ?>
-
-//--></script>
-
+//--></script> 
 <?php echo $footer; ?>

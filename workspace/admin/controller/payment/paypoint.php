@@ -3,7 +3,7 @@ class ControllerPaymentPayPoint extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('payment/paypoint');
+		$this->load->language('payment/paypoint');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -40,7 +40,7 @@ class ControllerPaymentPayPoint extends Controller {
 		$this->data['button_save'] = $this->language->get('button_save');
 		$this->data['button_cancel'] = $this->language->get('button_cancel');
 
-		if (isset($this->error['warning'])) {
+ 		if (isset($this->error['warning'])) {
 			$this->data['error_warning'] = $this->error['warning'];
 		} else {
 			$this->data['error_warning'] = '';
@@ -52,25 +52,25 @@ class ControllerPaymentPayPoint extends Controller {
 			$this->data['error_merchant'] = '';
 		}
 
-		$this->data['breadcrumbs'] = array();
+  		$this->data['breadcrumbs'] = array();
 
-		$this->data['breadcrumbs'][] = array(
-			'text'      => $this->language->get('text_home'),
+   		$this->data['breadcrumbs'][] = array(
+       		'text'      => $this->language->get('text_home'),
 			'href'      => $this->url->link('common/home', 'token=' . $this->session->data['token'], 'SSL'),
-			'separator' => false
-		);
+      		'separator' => false
+   		);
 
-		$this->data['breadcrumbs'][] = array(
-			'text'      => $this->language->get('text_payment'),
+   		$this->data['breadcrumbs'][] = array(
+       		'text'      => $this->language->get('text_payment'),
 			'href'      => $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL'),
-			'separator' => ' :: '
-		);
+      		'separator' => ' :: '
+   		);
 
-		$this->data['breadcrumbs'][] = array(
-			'text'      => $this->language->get('heading_title'),
+   		$this->data['breadcrumbs'][] = array(
+       		'text'      => $this->language->get('heading_title'),
 			'href'      => $this->url->link('payment/paypoint', 'token=' . $this->session->data['token'], 'SSL'),
-			'separator' => ' :: '
-		);
+      		'separator' => ' :: '
+   		);
 
 		$this->data['action'] = $this->url->link('payment/paypoint', 'token=' . $this->session->data['token'], 'SSL');
 
@@ -141,7 +141,7 @@ class ControllerPaymentPayPoint extends Controller {
 		$this->response->setOutput($this->render());
 	}
 
-	protected function validate() {
+	private function validate() {
 		if (!$this->user->hasPermission('modify', 'payment/paypoint')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}

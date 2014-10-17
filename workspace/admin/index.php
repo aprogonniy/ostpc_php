@@ -1,13 +1,11 @@
 <?php
 // Version
-define('VERSION', '1.5.6.4');
+define('VERSION', '1.5.3.1');
 
 // Configuration
-if (file_exists('config.php')) {
-	require_once('config.php');
-}
+require_once('config.php');
 
-// Install
+// Install 
 if (!defined('DIR_APPLICATION')) {
 	header('Location: ../install/index.php');
 	exit;
@@ -36,10 +34,10 @@ $registry->set('config', $config);
 // Database
 $db = new DB(DB_DRIVER, DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 $registry->set('db', $db);
-
+		
 // Settings
 $query = $db->query("SELECT * FROM " . DB_PREFIX . "setting WHERE store_id = '0'");
-
+ 
 foreach ($query->rows as $setting) {
 	if (!$setting['serialized']) {
 		$config->set($setting['key'], $setting['value']);
@@ -49,10 +47,10 @@ foreach ($query->rows as $setting) {
 }
 
 // Url
-$url = new Url(HTTP_SERVER, $config->get('config_secure') ? HTTPS_SERVER : HTTP_SERVER);	
+$url = new Url(HTTP_SERVER, $config->get('config_use_ssl') ? HTTPS_SERVER : HTTP_SERVER);	
 $registry->set('url', $url);
-
-// Log
+		
+// Log 
 $log = new Log($config->get('config_error_filename'));
 $registry->set('log', $log);
 
@@ -90,7 +88,7 @@ function error_handler($errno, $errstr, $errfile, $errline) {
 
 // Error Handler
 set_error_handler('error_handler');
-
+		
 // Request
 $request = new Request();
 $registry->set('request', $request);
@@ -111,7 +109,7 @@ $registry->set('session', $session);
 // Language
 $languages = array();
 
-$query = $db->query("SELECT * FROM `" . DB_PREFIX . "language`"); 
+$query = $db->query("SELECT * FROM " . DB_PREFIX . "language"); 
 
 foreach ($query->rows as $result) {
 	$languages[$result['code']] = $result;
@@ -122,14 +120,14 @@ $config->set('config_language_id', $languages[$config->get('config_admin_languag
 // Language	
 $language = new Language($languages[$config->get('config_admin_language')]['directory']);
 $language->load($languages[$config->get('config_admin_language')]['filename']);	
-$registry->set('language', $language);
+$registry->set('language', $language); 		
 
 // Document
 $registry->set('document', new Document()); 		
-
+		
 // Currency
 $registry->set('currency', new Currency($registry));		
-
+		
 // Weight
 $registry->set('weight', new Weight($registry));
 
@@ -138,10 +136,7 @@ $registry->set('length', new Length($registry));
 
 // User
 $registry->set('user', new User($registry));
-
-//OpenBay Pro
-$registry->set('openbay', new Openbay($registry));
-
+						
 // Front Controller
 $controller = new Front($registry);
 

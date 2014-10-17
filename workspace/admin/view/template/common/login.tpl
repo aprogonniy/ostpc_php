@@ -23,11 +23,8 @@
               <br />
               <?php echo $entry_password; ?><br />
               <input type="password" name="password" value="<?php echo $password; ?>" style="margin-top: 4px;" />
-              <?php if ($forgotten) { ?>
               <br />
-              <a href="<?php echo $forgotten; ?>"><?php echo $text_forgotten; ?></a>
-              <?php } ?>
-              </td>
+              <a href="<?php echo $forgotten; ?>"><?php echo $text_forgotten; ?></a></td>
           </tr>
           <tr>
             <td>&nbsp;</td>
