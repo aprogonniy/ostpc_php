@@ -23,6 +23,7 @@ define('DIR_LOGS', 'C:\development-FTU\workspace/system/logs/');
 define('DIR_CATALOG', 'C:\development-FTU\workspace/catalog/');
 
 // DB
+// Прошу обратить внимание на имя БД
 define('DB_DRIVER', 'mysql');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
