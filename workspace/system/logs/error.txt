@@ -1,9 +1,0 @@
-2014-10-24 19:32:42 - PHP Notice:  Undefined variable: stores in C:\development-FTU\workspace\catalog\view\theme\default\template\common\header.tpl on line 40
-2014-10-24 19:32:42 - PHP Notice:  Undefined variable: search in C:\development-FTU\workspace\catalog\view\theme\default\template\common\header.tpl on line 62
-2014-10-24 19:32:42 - PHP Notice:  Undefined variable: error in C:\development-FTU\workspace\catalog\view\theme\default\template\common\header.tpl on line 97
-2014-10-24 19:34:55 - PHP Notice:  Undefined variable: stores in C:\development-FTU\workspace\catalog\view\theme\default\template\common\header.tpl on line 40
-2014-10-24 19:34:55 - PHP Notice:  Undefined variable: search in C:\development-FTU\workspace\catalog\view\theme\default\template\common\header.tpl on line 62
-2014-10-24 19:34:55 - PHP Notice:  Undefined variable: error in C:\development-FTU\workspace\catalog\view\theme\default\template\common\header.tpl on line 97
-2014-10-24 19:34:59 - PHP Notice:  Undefined variable: stores in C:\development-FTU\workspace\catalog\view\theme\default\template\common\header.tpl on line 40
-2014-10-24 19:34:59 - PHP Notice:  Undefined variable: search in C:\development-FTU\workspace\catalog\view\theme\default\template\common\header.tpl on line 62
-2014-10-24 19:34:59 - PHP Notice:  Undefined variable: error in C:\development-FTU\workspace\catalog\view\theme\default\template\common\header.tpl on line 97
