@@ -6,16 +6,16 @@ define('HTTP_SERVER', 'http://localhost/');
 define('HTTPS_SERVER', 'http://localhost/');
 
 // DIR
-define('DIR_APPLICATION', 'D:\Projects\OSTPC\Medtechnik\workspace/catalog/');
-define('DIR_SYSTEM', 'D:\Projects\OSTPC\Medtechnik\workspace/system/');
-define('DIR_DATABASE', 'D:\Projects\OSTPC\Medtechnik\workspace/system/database/');
-define('DIR_LANGUAGE', 'D:\Projects\OSTPC\Medtechnik\workspace/catalog/language/');
-define('DIR_TEMPLATE', 'D:\Projects\OSTPC\Medtechnik\workspace/catalog/view/theme/');
-define('DIR_CONFIG', 'D:\Projects\OSTPC\Medtechnik\workspace/system/config/');
-define('DIR_IMAGE', 'D:\Projects\OSTPC\Medtechnik\workspace/image/');
-define('DIR_CACHE', 'D:\Projects\OSTPC\Medtechnik\workspace/system/cache/');
-define('DIR_DOWNLOAD', 'D:\Projects\OSTPC\Medtechnik\workspace/download/');
-define('DIR_LOGS', 'D:\Projects\OSTPC\Medtechnik\workspace/system/logs/');
+define('DIR_APPLICATION', 'D:\JavaSource_ee\ostpc_php/catalog/');
+define('DIR_SYSTEM', 'D:\JavaSource_ee\ostpc_php/system/');
+define('DIR_DATABASE', 'D:\JavaSource_ee\ostpc_php/system/database/');
+define('DIR_LANGUAGE', 'D:\JavaSource_ee\ostpc_php/catalog/language/');
+define('DIR_TEMPLATE', 'D:\JavaSource_ee\ostpc_php/catalog/view/theme/');
+define('DIR_CONFIG', 'D:\JavaSource_ee\ostpc_php/system/config/');
+define('DIR_IMAGE', 'D:\JavaSource_ee\ostpc_php/image/');
+define('DIR_CACHE', 'D:\JavaSource_ee\ostpc_php/system/cache/');
+define('DIR_DOWNLOAD', 'D:\JavaSource_ee\ostpc_php/download/');
+define('DIR_LOGS', 'D:\JavaSource_ee\ostpc_php/system/logs/');
 
 // DB
 define('DB_DRIVER', 'mysqli');
