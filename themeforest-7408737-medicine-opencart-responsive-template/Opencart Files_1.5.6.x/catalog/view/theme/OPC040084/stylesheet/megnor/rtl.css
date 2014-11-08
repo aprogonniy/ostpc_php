@@ -1,0 +1,167 @@
+* { direction: rtl; }
+
+#column-left{ float:right; }
+#column-right{ float:left; }
+
+#column-left + #content {    margin-left: 0;  margin-right: 225px;}
+#column-right + #content {    margin-right: 0;  margin-left: 225px;}
+#column-left + #column-right + #content{margin-right: 235px;margin-left: 235px;}
+
+ #header .header-left  { float:right;  }
+#header .header-right  { float:left; }
+#header #cart{ right:auto;  left:0;   }
+#header #cart .heading span  ,#header #cart.active .heading span
+{ background-position: left 8px; padding-left:15px; padding-right:0px;display:inline-block;   }  
+ #header .links a, #header #welcome a + a{ background-position:right center; }
+ #header .links a, #header #welcome a{ padding:0 7px 0 0;  }
+  #header #welcome a{ display:inline-block; }
+ 
+ #currency , #language{   float:right;}
+ .ie7  #currency , .ie7  #language{ display:inline-block !important; position:relative; float:right;  }
+ .ie7 .language_div,.ie7 .currency_div{ right:0; }
+ .ie7 .breadcrumb ul li{ display:inline; }
+ 
+  .breadcrumb a{  display: inline-block; }
+
+ 
+ /***********    FLOAT:LEFT       **********/
+#header #cart .heading , #header .links , #header #welcome , .treeview-list .hitarea , #header #cart .content  , .pagination .links , .success .close, .warning .close, .attention .close, .information .close ,  .cart-right-area , .cart-total table , .checkout-content .right , .buttons .right  , .product-filter .sort , .sitemap-info .right , .return-list .return-status , .product-list .price  {float:left;}
+
+ /***********    FLOAT:RIGHT      **********/
+ .main-menu > ul > li  ,  #header #search , .category-list ul li, .product-list .left , .product-list .wishlist , .pagination .results , .product-info .review .share  ,.review-list .author , .review-list .date , .review-list .rating , .cart-left-area , .buttons .left , .product-filter .display , .contact-info .left , .sitemap-info .left , .manufacturer-list ul , .return-list .return-content div  ,#content .aboutus .image1 , #content .aboutus .image2 , #content .aboutus .image3 , #content .aboutus .image4 {float:right;}
+
+/***********    TEXT-ALIGN:RIGHT      **********/
+#header, .nav-inner, .content-inner, .footer-inner , #content .product-list .product-block-inner ,  .attribute thead tr td:first-child , .cart-buttons .center , table.list .left , .compare-info thead td, .compare-info thead tr td:first-child , span.customSelect , .currency_div a, .language_div a  , #column-left .box-product .cart .button, #column-right .box-product .cart .button{ text-align:right; }
+
+/***********    TEXT-ALIGN:LEFT      **********/
+.cart-right-area .checkout-button , .checkout-heading a , .return-list .return-info , .cart-right-area .checkout-button, .checkout-heading a, .return-list .return-info{ text-align:left; }
+ 
+ 
+.ie7  .main-menu > ul > li > a { display:inline-block;}
+.ie7  .main-menu > ul > li > ul{ left:auto; right:0 !important; top:42px;}
+.ie7 .product-list .left{float:left;}
+.main-menu > ul > li ul > li > ul{ margin-left:0; margin-right:-5px;}
+.main-menu > ul > li ul > li > a { position:relative;}
+.flex-control-nav{ right:auto; left:10px; padding:0;}
+ 
+.sale{border-radius: 0 5px 5px 0;left: 0;right: auto;}
+.product-list .sale{  left: auto;
+    right: 10px;border-radius: 5px 0 0 5px; }
+#header #search input{ padding:7px 7px 7px 33px; }
+#header .button-search{ left:11px; right:auto;border-radius:5px 0 0 5px; }
+#language .language_div img{ margin-left:5px; margin-right:0; }
+#footer .column ul{ padding-right:0; }
+.success .close, .warning .close, .attention .close, .information .close{ left: 10px;  right: auto;}
+.success, .warning, .attention, .information{ padding:10px 33px 10px 10px; background-position: right 10px; }
+.customNavigation a.prev { left:0px;  right: auto;}
+.customNavigation a.next{ left:22px;  right: auto; }
+.main-menu > ul > li ul > li > a.activSub{background: url("../../image/megnor/rtl/cat_arrow_hover_rtl.png") no-repeat scroll left center; }
+.main-menu > ul > li ul > li:hover > ul {	left:auto; right:173px;}
+.product-list .wishlist{ margin-right:0 ; margin-left:10px; }
+ .product-grid-list .wishlist a, #content .box-product .wishlist a ,.product-grid-list .compare a, #content .box-product .compare a{
+  padding-right:18px; padding-left:0; background-position:right center !important; display:inline-block; }
+ .product-grid-list .wishlist a:hover, #content .box-product .wishlist a:hover ,.product-grid-list .compare a:hover, #content .box-product .compare a:hover{background-position:right center;}
+ .box .box-content ul li{ padding-right:0; margin-right:0; }
+.box .box-content ul li a, #content .content ul li a , .box .box-content ul li a + a{ 
+	background: url("../../image/megnor/rtl/cat_arrow_rtl.png") no-repeat scroll right center;
+    padding-right: 12px; 
+}
+.box .box-content ul li a:hover, #content .content ul li a:hover , .box .box-content ul li a + a:hover{
+	background: url("../../image/megnor/rtl/cat_arrow_hover_rtl.png") no-repeat scroll right center;
+}
+ul.box-category > li a.active + ul , .box .box-content ul ul{ margin-left:0; margin-right:0; padding-right:15px }
+ul.box-category > li ul > li > a{
+	background: url("../../image/megnor/rtl/subcat_arrow_rtl.png") no-repeat scroll right center !important;
+    padding-right: 12px;
+}
+ul.box-category > li ul > li > a:hover{
+	background: url("../../image/megnor/rtl/subcat_arrow_hover_rtl.png") no-repeat scroll right center !important; 
+}
+.ie7 #footer .column li a{ float:right; }
+#footer .column li a{
+	background-position:right center;
+    padding-right: 12px;
+	padding-left:0;
+	}
+#footer .column li a:hover{
+	background-position:right center;
+}
+#footer #block_contact_infos{margin-right:0;margin-left:15px;}
+#footer .custom_footer_main{margin-right:0;margin-left:35px;}
+.footer_bottom ul li{background-position:left center;}
+.product-grid li, #content .box-product .product-items{ float:right; }
+.category-info .image{  }
+#column-left .box-product .image, #column-right .box-product .image{ float:right;   margin-left: 7px; margin-right:0; }
+#column-left .box-product .rating, #column-right .box-product .rating, #column-left .box-product .name, #column-right .box-product .name, #column-left .box-product .price, #column-right .box-product .price, #column-left .box-product .cart, #column-right .box-product .cart{ margin-right:61px; margin-left:0; }
+.customSelectInner , .customSelectOpen .customSelectInner{ background-position:left center; } 
+.product-list .right{ float:left;margin-left: 0px; text-align:right;}
+.product-list .image {    float: right;    margin-left: 10px; margin-right:0; }
+.product-info > .left {    float: right;    margin-right: 0px; margin-left:15px; }
+.product-info > .left + .right {  margin-right: 295px;   margin-left:0px;}
+.zoomWindow	{ left:auto !important; right:270px!important;}
+.product-compare{ float:right; margin-right:15px; }
+.product-filter .limit{ float:left; margin-left:0; margin-right:15px; }
+.product-info .review a.review-write{ background-position:right center; padding-left:0; padding-right:20px;}
+ .htabs a{ margin-left:3px; margin-right:0; float:right; }
+.captch_input{ float:right; margin:4px 0 0 7px !important; }
+.contact-info  .address , .contact-info .telephone , .contact-info .fax{ float:right; clear:both; }
+.product-carousel .slider-wrapper-outer{ direction:ltr !important; } 
+#topcontrol{ right:auto !important; left:10px !important; } 
+.ie7 .product-info .additional-carousel{ float:left; }
+.header_bottom .links{float:left;}
+.main-menu > ul > li{background-position:left center;}
+#header #cart .heading{background-position:right center;padding:10px 40px 10px 0;}
+.box .box-heading{background-position:95% center;padding:7px 30px 7px 7px;}
+#content .box .box-heading{background-position:right center;padding:7px 20px 7px 0px;}
+.product-list .price{float:right;margin:10px 0 5px 20px;}
+.product-list .cart{float:right;}
+#footer #social_block li a{margin-left:0;margin-right:37px;float:right;}
+#footer .column{float:right;}
+#bottomfooter{float:right;}
+.copyright-container{float:left;}
+.language_div, .currency_div{right:0;}
+ul.box-category > li a.active{background:url(../../image/megnor/rtl/cat_arrow_hover_rtl.png) no-repeat scroll right center transparent !important;}
+ 
+@media only screen and (min-width: 980px) and (max-width: 1024px){
+ 	.product-list .right{width:285px;}
+	#column-left + #column-right + #content{margin-left: 190px;
+    margin-right: 190px;}
+ }
+@media only screen and (max-width: 979px) {
+ 
+	.nav-responsive .expandable{ float:left; margin-right:0; margin-left:10px;  }
+	#header #search {    margin-right: 0px;  }
+	.nav-responsive div, .responsive-menu .hitarea{ margin-left:10px; margin-right:0; }
+	 .responsive-menu .main-navigation ul{ padding-right:20px; padding-left:0; }
+	.nav-responsive div, .responsive-menu .hitarea{ float:left; }
+	.toggle .mobile_togglemenu{ background-position: left 4px; }
+	.active .mobile_togglemenu{background-position: left -48px; }
+	#column-left + #content{ margin-right:0px; }
+	#column-left + #column-right + #content{ margin-left: 0; margin-right: 175px;}
+	#footer #block_contact_infos{margin:0;}
+}
+
+@media only screen and (max-width: 767px) {
+	#currency, #language{ border-left: 1px solid #FFFFFF;}
+	.tm_headerlinkmenu{margin-left: -2px; margin-right:0;left:0;right:auto;width:33% !important;border-radius:5px 0 0 0; }
+	#language{border-radius:0 5px 0 0;}
+	#currency{left:32%;right:auto;}
+	#header #cart .heading{ float:none !important;}
+	#header #cart .content{  float:none !important; margin:0 auto;}
+	#header .header_links{ left:0; right:auto; }
+	#header #search{  margin-right:0;}
+	.product-info > .left {  float: none; margin: 0 auto 10px; width: 285px; }
+	.product-info > .left + .right {    margin-right: 0;}
+	.htabs a{ float:none; margin-left:0;display:inline-block !important; } 
+	#column-left + #column-right + #content{margin:0;}
+	#header .button-search{left:8px;}
+	
+}
+@media only screen and (max-width: 479px) {
+	 
+	  .product-info > .left, #header #logo img, .product-info > .left .image img{width: 100%;}
+}
+@media only screen and (max-width: 319px){
+.customSelectInner, .customSelectOpen .customSelectInner{width:84px !important;}
+#header #cart{top:147px;}
+}
