@@ -19,9 +19,9 @@
 
 								$limit = $this->config->get('ls_limit_results');
 								$more = $this->config->get('ls_more');
-								if ($more=="") $more = "...";
+								if ($more=="") $more = "Больше";
 								$noresults = $this->config->get('ls_noresults');
-								if ($noresults=="") $noresults = "No results";
+								if ($noresults=="") $noresults = "Нет результатов";
 								$images = $this->config->get('ls_images');
 								$prices = $this->config->get('ls_prices');
 								$model = $this->config->get('ls_model');
