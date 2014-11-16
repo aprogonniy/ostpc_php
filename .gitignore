@@ -1,2 +1,16 @@
+#eclipse files
+.classpath
+.project
+.settings
+
+#IDEA IntelliJ config files
+.idea/
+*.iml
+
+#log and report files
+*.log
+
+/system/cache
 /admin/config.php
-/config.php
+config.php
+
