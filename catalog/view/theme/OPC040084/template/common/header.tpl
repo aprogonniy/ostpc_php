@@ -88,25 +88,25 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
 </head>
 <body class="<?php echo $body_class; ?>">
 
-<!-- Start SiteHeart code -->
-<script>
-	(function(){
-	var widget_id = 743065;
-	_shcp =[{widget_id : widget_id}];
-	var lang =(navigator.language || navigator.systemLanguage 
-	|| navigator.userLanguage ||"en")
-	.substr(0,2).toLowerCase();
-	var url ="widget.siteheart.com/widget/sh/"+ widget_id +"/"+ lang +"/widget.js";
-	var hcc = document.createElement("script");
-	hcc.type ="text/javascript";
-	hcc.async =true;
-	hcc.src =("https:"== document.location.protocol ?"https":"http")
-	+"://"+ url;
-	var s = document.getElementsByTagName("script")[0];
-	s.parentNode.insertBefore(hcc, s.nextSibling);
-	})();
-</script>
-<!-- End SiteHeart code -->
+    <!-- Start SiteHeart code -->
+    <script>
+    (function(){
+    var widget_id = 743899;
+    _shcp =[{widget_id : widget_id}];
+    var lang =(navigator.language || navigator.systemLanguage
+    || navigator.userLanguage ||"en")
+    .substr(0,2).toLowerCase();
+    var url ="widget.siteheart.com/widget/sh/"+ widget_id +"/"+ lang +"/widget.js";
+    var hcc = document.createElement("script");
+    hcc.type ="text/javascript";
+    hcc.async =true;
+    hcc.src =("https:"== document.location.protocol ?"https":"http")
+    +"://"+ url;
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hcc, s.nextSibling);
+    })();
+    </script>
+    <!-- End SiteHeart code -->
 
 <div id="container">
 <header id="header-container_main">
