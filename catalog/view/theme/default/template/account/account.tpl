@@ -27,7 +27,6 @@
       <?php if ($reward) { ?>
       <li><a href="<?php echo $reward; ?>"><?php echo $text_reward; ?></a></li>
       <?php } ?>
-      <li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>
       <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
       <li><a href="<?php echo $recurring; ?>"><?php echo $text_recurring; ?></a></li>
     </ul>
