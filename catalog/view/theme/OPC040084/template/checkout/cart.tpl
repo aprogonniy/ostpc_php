@@ -87,7 +87,7 @@
     </div>
   </form>
   <?php if ($coupon_status || $voucher_status || $reward_status || $shipping_status) { ?>
-  <div class="cart-left-area"> <!-- Magento extra Div start -->
+  <div class="cart-left-area" style="visibility: hidden;"> <!-- Magento extra Div start -->
 		<h2><?php echo $text_next; ?></h2>
 		<div class="content">
     <p><?php echo $text_next_choice; ?></p>
