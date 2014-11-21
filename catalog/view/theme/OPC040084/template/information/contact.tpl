@@ -12,7 +12,7 @@
 	  	<div class="left">
 			<div class="address">
 				<label><?php echo $text_address; ?></label>
-				<?php echo $store; ?> 
+				<?php //echo $store; ?> 
 				<?php echo $address; ?> 
 			 </div>
 			 <div class="telephone">		   

@@ -274,17 +274,18 @@
         <div class="minimum"><?php echo $text_minimum; ?></div>
         <?php } ?>
       </div>
-      <?php if ($review_status) { ?>
 	  
       <div class="review">
-        <div itemscope itemtype="http://schema.org/AggregateRating"><img itemprop="ratingValue" src="catalog/view/theme/<?php echo $this->config->get('config_template') ?>/image/stars-<?php echo $rating; ?>.png" alt="<?php echo $reviews; ?>" />&nbsp;&nbsp;<a itemprop="reviewCount" onclick="$('a[href=\'#tab-review\']').trigger('click');" ><?php echo $reviews; ?></a>&nbsp;&nbsp;&nbsp;&nbsp <a onclick="$('a[href=\'#tab-review\']').trigger('click');" class="review-write"><?php echo $text_write; ?></a></div>        
-		<div class="share"><!-- AddThis Button BEGIN -->
-          <div class="addthis_default_style"><a class="addthis_button_compact"><?php echo $text_share; ?></a> <a class="addthis_button_email"></a><a class="addthis_button_print"></a> <a class="addthis_button_facebook"></a> <a class="addthis_button_twitter"></a></div>
-          <script type="text/javascript" src="//s7.addthis.com/js/250/addthis_widget.js"></script> 
-          <!-- AddThis Button END --> 
+      	<?php if ($review_status) { ?>
+        	<div itemscope itemtype="http://schema.org/AggregateRating"><img itemprop="ratingValue" src="catalog/view/theme/<?php echo $this->config->get('config_template') ?>/image/stars-<?php echo $rating; ?>.png" alt="<?php echo $reviews; ?>" />&nbsp;&nbsp;<a itemprop="reviewCount" onclick="$('a[href=\'#tab-review\']').trigger('click');" ><?php echo $reviews; ?></a>&nbsp;&nbsp;&nbsp;&nbsp <a onclick="$('a[href=\'#tab-review\']').trigger('click');" class="review-write"><?php echo $text_write; ?></a></div>        
+		<?php } ?>
+		<div class="share">
+		
+		<!-- Go to www.addthis.com/dashboard to customize your tools -->
+		<div class="addthis_sharing_toolbox"></div>
+		
         </div>
       </div>
-      <?php } ?>
     </div>
   </div>
   <div id="tabs" class="htabs"><a href="#tab-description"><?php echo $tab_description; ?></a>

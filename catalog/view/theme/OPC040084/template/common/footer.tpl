@@ -67,6 +67,7 @@
     
 	   <li><a href="<?php echo $voucher; ?>"><?php echo $text_voucher; ?></a></li>
 	 
+	   <!-- <li><a href="<?php echo $manufacturer; ?>"><?php echo $text_manufacturer; ?></a></li> -->
 	   	   
 		
            <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
@@ -77,21 +78,12 @@
 
 </div>
 <div class="copyright-container">
-<!--
-OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
-Please donate via PayPal to donate@opencart.com
-//-->
 <div id="powered"><?php echo $powered; ?></div>
  
  </div>
  </div>
 </footer>
 
-
-<!--
-OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
-Please donate via PayPal to donate@opencart.com
-//-->	 
 </div>
 
 </div>
