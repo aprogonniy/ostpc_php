@@ -119,7 +119,7 @@ input[type="week"] {
 	color:#7F7355;
 	outline: 0;
 	padding:5px 5px 5px 3px;
-  	width:400px ;
+  	width:205px;
   	z-index:0;
   	position:relative;
 	-webkit-border-radius:5px 5px 5px 5px;
@@ -541,15 +541,15 @@ background: url('../image/megnor/arrow-up.gif') right 6px no-repeat;
 	position:relative;
 	margin-top:0px;
 	padding:10px;
-	background-color:#A1CE41 ;
-	background-image: -ms-linear-gradient(top, #A1CE41 0%, #6AAD38 100%);/* IE10 Consumer Preview */ 
-	background-image: -moz-linear-gradient(top, #A1CE41 0%, #6AAD38 100%);/* Mozilla Firefox */ 
-	background-image: -o-linear-gradient(top, #A1CE41 0%, #6AAD38 100%);/* Opera */ 
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #A1CE41), color-stop(1, #6AAD38));/* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-linear-gradient(top, #A1CE41 0%, #6AAD38 100%);/* Webkit (Chrome 11+) */ 
-	background-image: linear-gradient(to bottom, #A1CE41 0%, #6AAD38 100%);/* W3C Markup, IE10 Release Preview */ 
-	filter: progidXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#A1CE41', endColorstr='#6AAD38'); /* IE6 & IE7 */
-	-ms-filter: "progidXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#A1CE41',endColorstr='#6AAD38')"; /* IE8 */ 
+	background-color:#7BC0DC ;
+	background-image: -ms-linear-gradient(top, #7BC0DC 0%, #0084BA 100%);/* IE10 Consumer Preview */ 
+	background-image: -moz-linear-gradient(top, #7BC0DC 0%, #0084BA 100%);/* Mozilla Firefox */ 
+	background-image: -o-linear-gradient(top, #7BC0DC 0%, #0084BA 100%);/* Opera */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7BC0DC), color-stop(1, #0084BA));/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-linear-gradient(top, #7BC0DC 0%, #0084BA 100%);/* Webkit (Chrome 11+) */ 
+	background-image: linear-gradient(to bottom, #7BC0DC 0%, #0084BA 100%);/* W3C Markup, IE10 Release Preview */ 
+	filter: progidXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7BC0DC', endColorstr='#0084BA'); /* IE6 & IE7 */
+	-ms-filter: "progidXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7BC0DC',endColorstr='#0084BA')"; /* IE8 */ 
 	border-radius: 5px 5px 5px 5px;
 }
 #header .button-search {
@@ -632,17 +632,17 @@ background: url('../image/megnor/arrow-up.gif') right 6px no-repeat;
 	border-radius:5px 5px 0 0;
 	-moz-border-radius:5px 5px 0 0;
 	-webkit-border-radius:5px 5px 0 0;
-	border-top:1px solid #A0CE41;
-	background-color:#A1CE41 ;
-	background-image: -ms-linear-gradient(top, #A1CE41 0%, #6AAD38 100%);/* IE10 Consumer Preview */ 
-	background-image: -moz-linear-gradient(top, #A1CE41 0%, #6AAD38 100%);/* Mozilla Firefox */ 
-	background-image: -o-linear-gradient(top, #A1CE41 0%, #6AAD38 100%);/* Opera */ 
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #A1CE41), color-stop(1, #6AAD38));/* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-linear-gradient(top, #A1CE41 0%, #6AAD38 100%);/* Webkit (Chrome 11+) */ 
-	background-image: linear-gradient(to bottom, #A1CE41 0%, #6AAD38 100%);/* W3C Markup, IE10 Release Preview */ 
-	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#A1CE41', endColorstr='#6AAD38'); /* IE6 & IE7 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#A1CE41',endColorstr='#6AAD38')"; /* IE8 */ 
-	box-shadow:0 1px 0 #C8E861 inset;
+	border-top:1px solid #AFD8E8;
+	background-color:#7BC0DC ;
+	background-image: -ms-linear-gradient(top, #7BC0DC 0%, #0084BA 100%);/* IE10 Consumer Preview */ 
+	background-image: -moz-linear-gradient(top, #7BC0DC 0%, #0084BA 100%);/* Mozilla Firefox */ 
+	background-image: -o-linear-gradient(top, #7BC0DC 0%, #0084BA 100%);/* Opera */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7BC0DC), color-stop(1, #0084BA));/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-linear-gradient(top, #7BC0DC 0%, #0084BA 100%);/* Webkit (Chrome 11+) */ 
+	background-image: linear-gradient(to bottom, #7BC0DC 0%, #0084BA 100%);/* W3C Markup, IE10 Release Preview */ 
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7BC0DC', endColorstr='#0084BA'); /* IE6 & IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7BC0DC',endColorstr='#0084BA')"; /* IE8 */ 
+	box-shadow:0 1px 0 #5CB1D3 inset;
 	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 	/*overflow:hidden; HIDE CATEGORIES THOSE ARE OUT OF MANU.  */	  
 }
@@ -677,11 +677,11 @@ background: url('../image/megnor/arrow-up.gif') right 6px no-repeat;
 .main-menu a:hover { text-decoration:none}
 
 .main-menu > ul > li:hover > a {
-	color:#385B0B;	
+	color:#00405B;	
 }
 .main-menu > ul > li > ul , .responsive-menu .main-navigation{
 	display: none;
-	background: #6EAF39;
+	background: #0084BA;
 	position: absolute;	
 	z-index: 5;
 	padding: 5px;	
@@ -692,7 +692,7 @@ background: url('../image/megnor/arrow-up.gif') right 6px no-repeat;
 } 
 .main-menu > ul > li ul > li > ul {
 	display: none;
-	background:#6EAF39;
+	background:#0084BA;
 	position: absolute;	
 	z-index: 5;
 	padding: 5px;	
@@ -723,7 +723,7 @@ background: url('../image/megnor/arrow-up.gif') right 6px no-repeat;
 .main-menu > ul > li ul > li:first-child{background:none;}
 .main-menu > ul > li ul > li > a{min-width: 160px;}
 .main-menu > ul > li ul > li > a:hover  , .responsive-menu .main-navigation li a:hover  {
-	color:#385B0B;
+	color:#00405B;
 	
 }
 .main-menu > ul > li ul > li > a.activSub {	
@@ -731,7 +731,7 @@ background: url('../image/megnor/arrow-up.gif') right 6px no-repeat;
 	background-repeat:no-repeat;
 	background-position: right center;
 }
-.main-menu > ul > li ul > li:hover a.activSub{color:#385B0B;}
+.main-menu > ul > li ul > li:hover a.activSub{color:#00405B;}
 .main-menu > ul > li > ul > ul > li > a {
 	color: #FFFFFF;
 } 
@@ -2582,6 +2582,18 @@ ul.box-filter > li ul {
  
 .checkout input.large-field,.checkout select.large-field{width:250px;}
 .page_product .content-inner .box {clear:none;overflow:hidden;} 
+
+/*
+#simplecheckout_form .simplecheckout-customer-two-column-left {
+    width: 100% !important;
+}
+#simplecheckout_form .registration-line-wrap .simplecheckout-customer-left {
+    width: 30%!important;
+}
+#simplecheckout_form .registration-line-wrap .simplecheckout-customer-right {
+    width: 70%!important;
+}
+
 #simplecheckout_form .simplecheckout-block-content textarea,
 #simplecheckout_form .simplecheckout-block-content select,
 #simplecheckout_form .simplecheckout-block-content input[type="date"],
@@ -2597,12 +2609,6 @@ ul.box-filter > li ul {
 #simplecheckout_form .simplecheckout-block-content input[type="time"],
 #simplecheckout_form .simplecheckout-block-content input[type="url"],
 #simplecheckout_form .simplecheckout-block-content input[type="week"] {
-    width: 550px !important;
-}
-#simpleregister .simplecheckout-customer-left {
-	width: 150px !important;
-}
-#simpleregister .simplecheckout-customer-right input, textarea, select
-{
-	width: 550px !important;
-}
+    width: 500px !important;
+}*/
+

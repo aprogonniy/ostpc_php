@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="right">
-			 <script type="text/javascript" src="http://www.webestools.com/google_map_gen.js?lati=37.0625&long=-95.6770&zoom=4&width=350&height=200&mapType=normal&map_btn_normal=yes&map_btn_satelite=yes&map_btn_mixte=yes&map_small=yes&marqueur=yes&info_bulle="></script>
+			 <script type="text/javascript" src="http://www.webestools.com/google_map_gen.js?lati=49.965942&long=36.30878,17&zoom=4&width=350&height=200&mapType=normal&map_btn_normal=yes&map_btn_satelite=yes&map_btn_mixte=yes&map_small=yes&marqueur=yes&info_bulle="></script>
 		 </div> 
     </div>
     <h2><?php echo $text_contact; ?></h2>

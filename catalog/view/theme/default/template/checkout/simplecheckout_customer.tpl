@@ -34,7 +34,7 @@
         <?php $geo_selector_used = false; ?>
         <?php foreach ($checkout_customer_fields as $field) { ?>
             <?php if ($i == 0 && !$customer_logged && $simple_customer_action_register == Simple::REGISTER_USER_CHOICE) { ?>
-                <tr>
+                <tr class="registration-line-wrap">
                     <td class="simplecheckout-customer-left">
                        <?php echo $entry_register; ?>
                     </td>
