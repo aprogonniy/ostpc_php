@@ -17,8 +17,8 @@
       <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
       <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
       <li><a href="<?php echo $newsletter; ?>"><?php echo $text_newsletter; ?></a></li>
-      <li><a href="<?php echo $recurring; ?>"><?php echo $text_recurring; ?></a></li>
-      <?php if ($logged) { ?>
+      <!--<li><a href="<?php echo $recurring; ?>"><?php echo $text_recurring; ?></a></li>
+      <?php if ($logged) { ?>-->
       <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
       <?php } ?>
     </ul>
