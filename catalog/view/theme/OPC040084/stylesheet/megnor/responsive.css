@@ -44,7 +44,9 @@
 	#column-left .banner img,
 	#column-right .banner img{ max-width:100%}
 	#header .header-right{ width:455px; }
-	#header #search{ margin-left:-15px;margin-top:5px;}
+	#header #search{ margin-left:-15px;margin-top:20px;}
+
+    #header #cart .heading {background: none;}
  
 	#footer .column { width:100%;margin:0;}
 	#footer .column ul { display:none;padding-bottom:20px; }	
@@ -89,7 +91,7 @@
     text-align: center;
     width: 100%;}	
 	#header #search { width:97%; margin:15px auto; z-index:5; }
-	#header .button-search{right:8px;}
+	#header .button-search{right:4px;}
 	#header #search input{ width:100%;  }
 	#header #cart{ width:100%; top:155px; text-align:center; }
 	#header #cart .heading a{background:url(../../image/cart.png) no-repeat scroll left center transparent;padding:10px 0 10px 40px;}

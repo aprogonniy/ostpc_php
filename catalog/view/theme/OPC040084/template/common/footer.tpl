@@ -67,8 +67,7 @@
     
 	   <li><a href="<?php echo $voucher; ?>"><?php echo $text_voucher; ?></a></li>
 	 
-	  <!-- <li><a href="<?php echo $manufacturer; ?>"><?php echo $text_manufacturer; ?></a></li>
- -->	   	   
+	  <li><a href="<?php echo $manufacturer; ?>"><?php echo $text_manufacturer; ?></a></li>
 		
            <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
 		

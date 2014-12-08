@@ -152,29 +152,47 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
 <nav class="nav-container" role="navigation">
 <div class="nav-inner">
 <!-- ======= Menu Code START ========= -->
-
+<?php if ($categories) { ?>
 <!-- Opencart 3 level Category Menu-->
 <div id="menu" class="main-menu">
 <div class="nav-responsive"><span>Menu</span><div class="expandable"></div></div>
   <ul class="main-navigation">
-    <li><a href="<?php echo $home; ?>"><?php echo "Главная"; ?></a></li>
-    <li><a href="<?php echo '#'; ?>"><?php echo "Каталог товаров"; ?></a>
+ 
+   <?php $r=0; foreach ($categories as $category) {$r++;} ?>
+	<?php $k=0; foreach ($categories as $category) {$k++; ?>
+   <li class="<?php if($r == $k ){echo "last";} ?>"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+      <?php if ($category['children']) { ?>
 
-          <?php if ($categories) { ?>
+        <?php for ($i = 0; $i < count($category['children']);) { ?>
+        <ul>
+          <?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
+          <?php for (; $i < $j; $i++) { ?>
+          <?php if (isset($category['children'][$i])) { ?>										
+				<li>
+				<?php if(count($category['children'][$i]['children_level2'])>0){ ?>
+					<a href="<?php echo $category['children'][$i]['href']; ?>" class="activSub" <?php /*?>onmouseover='JavaScript:openSubMenu("<?php echo $category['children'][$i]['id']; ?>")'<?php */?>><?php echo $category['children'][$i]['name'];?></a> 					
+				<?php } else { ?>				
+					<a href="<?php echo $category['children'][$i]['href']; ?>" <?php /*?>onmouseover='JavaScript:closeSubMenu()'<?php */?> ><?php echo $category['children'][$i]['name']; ?></a>
+				<?php } ?>
 
-          <ul>
-              <?php $k=0; foreach ($categories as $category) {$k++; ?>
-                <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-              <?php } ?>
-          </ul>
-
+				<?php if ($category['children'][$i]['children_level2']) { ?>
+				<?php /*?><div class="submenu" id="id_menu_<?php echo $category['children'][$i]['id']; ?>"><?php */?>
+				<ul>
+				<?php for ($wi = 0; $wi < count($category['children'][$i]['children_level2']); $wi++) { ?>
+					<li><a href="<?php echo $category['children'][$i]['children_level2'][$wi]['href']; ?>"  ><?php echo $category['children'][$i]['children_level2'][$wi]['name']; ?></a></li>
+				 <?php } ?>
+				</ul>
+				<?php /*?></div><?php */?>
+			  <?php } ?>		  
+			</li>		
           <?php } ?>
+          <?php } ?>
+        </ul>
+        <?php } ?>
+
+      <?php } ?>
     </li>
-    <li><a href="<?php echo '#'; ?>"><?php echo "Акции"; ?></a></li>
-    <li><a href="<?php echo '#'; ?>"><?php echo "О нас" ?></a></li>
-    <li><a href="<?php echo '#'; ?>"><?php echo "Доставка и оплата" ?></a></li>
-    <li><a href="<?php echo '#'; ?>"><?php echo "Партнерам" ?></a></li>
-    <li class="last"><a href="<?php echo '#'; ?>"><?php echo "Контакты"; ?></a></li>
+    <?php } ?>
   </ul>
 </div>
 
@@ -203,6 +221,7 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
 </div>
 <?php */?>
 
+<?php } ?>
 <!-- ======= Menu Code END ========= -->
 
 
