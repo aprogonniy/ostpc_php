@@ -4,7 +4,7 @@ class ControllerCommonAutomaticSeoUrl extends Controller {
 	// configuration attributes
 	var $forceAutoUrl = true; //if set to true, default OC SEO keyword for urls will be ignored
 	var $manufacturerNameInUrl = true;
-	var $languageSlugInUrl = true;
+	var $languageSlugInUrl = false;
 	var $preventProdDuplicates = false; //if a product is linked to more then one category, only use one category for product details page
 	var $product_identifier = 'p';
 	var $category_identifier = 'c';
@@ -318,7 +318,7 @@ class ControllerCommonAutomaticSeoUrl extends Controller {
 	private function clean_name($name){
 		$name = htmlspecialchars_decode($name);
 		$bad_array = array("сква",
-					   "À","à","Á","á","Â","â","Ã","ã","Ä","ä","Å","å","Ā","ā","Ă","ă","Ą","ą","Ǟ","ǟ","Ǻ","ǻ","Α","α",
+					   "À","à","Á","á","Â","â","Ã","ã","Ä","ä","Å","å","Ā","ā","Ă","ă","Ą","ą","Ǟ","ǟ","Ǻ","ǻ","Α","α","А","а",
 					   "Æ", "æ", "Ǽ", "ǽ", 
 					   "Ḃ","ḃ","Б","б",
 					   "Ć","ć","Ç","ç","Č","č","Ĉ","ĉ","Ċ","ċ","Ч","ч","Χ","χ",
@@ -352,7 +352,7 @@ class ControllerCommonAutomaticSeoUrl extends Controller {
 					   "Ź","ź","Ž","ž","Ż","ż","З","з","Ζ","ζ",
 					   "Ь","ь",'Ъ',"ъ","^","&");
     $good_array= array("scow",
-					   "A","a","A","a","A","a","A","a","A","a","A","a","A","a","A","a","A","a","A","a","A","a","A","a",
+					   "A","a","A","a","A","a","A","a","A","a","A","a","A","a","A","a","A","a","A","a","A","a","A","a","A","a",
 					   "AE","ae","AE","ae",
 					   "B","b","B","b",
 					   "C","c","C","c","C","c","C","c","C","c","CH","ch","CH","ch",
