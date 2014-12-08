@@ -44,6 +44,7 @@
     padding: 5px;
 }
 #filterpro .attribute_group_name{
+	font-weight: bold;
     padding-left: 0;
 }
 
