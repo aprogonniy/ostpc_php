@@ -46,7 +46,7 @@
 	   	 <div class="saleblock">
 	  	<?php if (!$product['special']) { ?>       
 		<?php } else { ?>
-		<span class="saleicon sale">Sale</span>         
+		<span class="saleicon sale">Распродажа</span>
 		<?php } ?>
 		</div>
 		

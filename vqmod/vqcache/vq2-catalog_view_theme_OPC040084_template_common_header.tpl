@@ -190,25 +190,28 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
 </head>
 <body class="<?php echo $body_class; ?>">
 
-<!-- Start SiteHeart code -->
-<script>
-	(function(){
-	var widget_id = 743065;
-	_shcp =[{widget_id : widget_id}];
-	var lang =(navigator.language || navigator.systemLanguage 
-	|| navigator.userLanguage ||"en")
-	.substr(0,2).toLowerCase();
-	var url ="widget.siteheart.com/widget/sh/"+ widget_id +"/"+ lang +"/widget.js";
-	var hcc = document.createElement("script");
-	hcc.type ="text/javascript";
-	hcc.async =true;
-	hcc.src =("https:"== document.location.protocol ?"https":"http")
-	+"://"+ url;
-	var s = document.getElementsByTagName("script")[0];
-	s.parentNode.insertBefore(hcc, s.nextSibling);
-	})();
-</script>
-<!-- End SiteHeart code -->
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-546e6f083234f682" async="async"></script>
+
+    <!-- Start SiteHeart code -->
+    <script>
+    (function(){
+    var widget_id = 743899;
+    _shcp =[{widget_id : widget_id}];
+    var lang =(navigator.language || navigator.systemLanguage
+    || navigator.userLanguage ||"en")
+    .substr(0,2).toLowerCase();
+    var url ="widget.siteheart.com/widget/sh/"+ widget_id +"/"+ lang +"/widget.js";
+    var hcc = document.createElement("script");
+    hcc.type ="text/javascript";
+    hcc.async =true;
+    hcc.src =("https:"== document.location.protocol ?"https":"http")
+    +"://"+ url;
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hcc, s.nextSibling);
+    })();
+    </script>
+    <!-- End SiteHeart code -->
 
 <div id="container">
 <header id="header-container_main">
@@ -356,46 +359,29 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
 <nav class="nav-container" role="navigation">
 <div class="nav-inner">
 <!-- ======= Menu Code START ========= -->
-<?php if ($categories) { ?>
+
 <!-- Opencart 3 level Category Menu-->
 <div id="menu" class="main-menu">
-<div class="nav-responsive"><span>Menu</span><div class="expandable"></div></div>
+<div class="nav-responsive"><span>Меню</span><div class="expandable"></div></div>
   <ul class="main-navigation">
-   <?php $r=0; foreach ($categories as $category) {$r++;} ?>
-	<?php $k=0; foreach ($categories as $category) {$k++; ?>  
-   <li class="<?php if($r == $k ){echo "last";} ?>"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-      <?php if ($category['children']) { ?>
+    <li><a href="<?php echo $home; ?>"><?php echo "Главная"; ?></a></li>
+    <li><a href="<?php echo '#'; ?>" onclick="return false;" style="cursor: default;"><?php echo "Каталог товаров"; ?></a>
 
-        <?php for ($i = 0; $i < count($category['children']);) { ?>
-        <ul>
-          <?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
-          <?php for (; $i < $j; $i++) { ?>
-          <?php if (isset($category['children'][$i])) { ?>										
-				<li>
-				<?php if(count($category['children'][$i]['children_level2'])>0){ ?>
-					<a href="<?php echo $category['children'][$i]['href']; ?>" class="activSub" <?php /*?>onmouseover='JavaScript:openSubMenu("<?php echo $category['children'][$i]['id']; ?>")'<?php */?>><?php echo $category['children'][$i]['name'];?></a> 					
-				<?php } else { ?>				
-					<a href="<?php echo $category['children'][$i]['href']; ?>" <?php /*?>onmouseover='JavaScript:closeSubMenu()'<?php */?> ><?php echo $category['children'][$i]['name']; ?></a>
-				<?php } ?>
+          <?php if ($categories) { ?>
 
-				<?php if ($category['children'][$i]['children_level2']) { ?>
-				<?php /*?><div class="submenu" id="id_menu_<?php echo $category['children'][$i]['id']; ?>"><?php */?>
-				<ul>
-				<?php for ($wi = 0; $wi < count($category['children'][$i]['children_level2']); $wi++) { ?>
-					<li><a href="<?php echo $category['children'][$i]['children_level2'][$wi]['href']; ?>"  ><?php echo $category['children'][$i]['children_level2'][$wi]['name']; ?></a></li>
-				 <?php } ?>
-				</ul>
-				<?php /*?></div><?php */?>
-			  <?php } ?>		  
-			</li>		
+          <ul>
+              <?php $k=0; foreach ($categories as $category) {$k++; ?>
+                <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+              <?php } ?>
+          </ul>
+
           <?php } ?>
-          <?php } ?>
-        </ul>
-        <?php } ?>
-
-      <?php } ?>
     </li>
-    <?php } ?>
+    <li><a href="<?php echo '/product/special.html'; ?>"><?php echo "Акции"; ?></a></li>
+    <li><a href="<?php echo '/O-nas-i4.html'; ?>"><?php echo "О нас" ?></a></li>
+    <li><a href="<?php echo '/Dostavka-i-oplata-i6.html'; ?>"><?php echo "Доставка и оплата" ?></a></li>
+    <li><a href="<?php echo '/Kak-stat-partnyerom-i3.html'; ?>"><?php echo "Партнерам" ?></a></li>
+    <li class="last"><a href="<?php echo '/information/contact.html'; ?>"><?php echo "Контакты"; ?></a></li>
   </ul>
 </div>
 
@@ -424,7 +410,6 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
 </div>
 <?php */?>
 
-<?php } ?>
 <!-- ======= Menu Code END ========= -->
 
 

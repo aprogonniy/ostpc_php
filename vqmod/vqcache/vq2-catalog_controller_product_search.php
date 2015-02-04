@@ -469,9 +469,9 @@ class ControllerProductSearch extends Controller {
 
 								$limit = $this->config->get('ls_limit_results');
 								$more = $this->config->get('ls_more');
-								if ($more=="") $more = "Больше";
+								if ($more=="") $more = "...";
 								$noresults = $this->config->get('ls_noresults');
-								if ($noresults=="") $noresults = "Нет результатов";
+								if ($noresults=="") $noresults = "No results";
 								$images = $this->config->get('ls_images');
 								$prices = $this->config->get('ls_prices');
 								$model = $this->config->get('ls_model');
@@ -495,7 +495,7 @@ class ControllerProductSearch extends Controller {
 									}
 
 									$results[$i]["img"] = "";
-									if ($product['image']) {
+									if ($product['image'] && $images==1) {
 										$results[$i]["img"] = $this->model_tool_image->resize(
 											$product['image'],
 											$this->config->get('config_image_product_width'),
@@ -503,7 +503,7 @@ class ControllerProductSearch extends Controller {
 										);
 									}
 
-									if ($product['price']) {
+									if ($prices) {
 										$results[$i]["price"] = $this->currency->format( $this->tax->calculate( $product['price'], $product['tax_class_id'], $this->config->get('config_tax') ) );
 					                    if ($product['special']) {
 											$results[$i]["price"] = '<strike>' . $results[$i]["price"] . '</strike> ' . $this->currency->format( $this->tax->calculate( $product['special'], $product['tax_class_id'], $this->config->get('config_tax') ) );

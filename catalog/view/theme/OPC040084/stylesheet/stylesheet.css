@@ -698,7 +698,7 @@ background: url('../image/megnor/arrow-up.gif') right 6px no-repeat;
 	padding: 5px;	
 	margin-left:-5px;
 	border-radius:5px;
-	border:1px solid #9CCB40;
+	border:1px solid #006698;
 }
 .main-menu > ul > li ul > li:hover > ul {
 	display: block;
@@ -1000,7 +1000,7 @@ a.button:hover, input.button:hover {
 	display: none;
 }
 .htabs a.selected,.htabs a:hover {
-	background: none repeat scroll 0 0 #7BB73A;
+	background: none repeat scroll 0 0 #0084BA;
     color: #FFFFFF;
 }
 .tab-content {
@@ -1192,7 +1192,7 @@ ul.box-filter > li ul {
 }
 .category-list ul li a{ 
 	padding:5px 8px; 
-	background-color:#92C53E;
+	background-color:#0084BA;
 	display:block;
 	-webkit-border-radius: 5px ;
 	-moz-border-radius: 5px ;
@@ -1478,7 +1478,7 @@ ul.box-filter > li ul {
 #content .product-grid-list .product-block:hover .price ,
 #content .box-product .product-block:hover .price 
 {
-	color:#6EB039;
+	color:#0084BA;
 }
 
 #content .product-carousel .product-block:hover .cart .button,
@@ -1614,7 +1614,7 @@ ul.box-filter > li ul {
 #column-right .box-product .price-old  {
 	text-decoration: line-through;
 	display:inline;
-	color:#6EB039;
+	color:#0084BA;
 }
 
 .product-grid-list .price-new,
@@ -1669,9 +1669,8 @@ ul.box-filter > li ul {
 
 /* Product Info - Propduct Detail page */
 .product-info {
-	margin-bottom: 20px;
+	margin-bottom: 0px;
 	overflow:auto;
-	 
 }
 .product-info > .left {
 	float: left;
@@ -1740,7 +1739,7 @@ ul.box-filter > li ul {
 	
 }
 .product-info .price-old {
-	color:#6EB039;
+	color:#0084BA;
 	text-decoration: line-through;
 }
 .product-info .price-new {
@@ -2612,3 +2611,9 @@ ul.box-filter > li ul {
     width: 500px !important;
 }*/
 
+#simplecheckout_shipping a {
+    color: #FF8A00;
+}
+#simplecheckout_shipping a:hover {
+    color: #7F7355;
+}

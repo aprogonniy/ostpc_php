@@ -49,12 +49,6 @@ $http_type = "https:";} else {$http_type = "http:";}
 
 <script type="text/javascript" src="catalog/view/javascript/jquery/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
-
-<!-- Attach colorbox script and style  -->
-<link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/colorbox/colorbox.css" />
-<script type="text/javascript" src="catalog/view/javascript/jquery/colorbox/jquery.colorbox-min.js"></script>
-
-
 <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css" />
 <script type="text/javascript" src="catalog/view/javascript/common.js"></script>
 
@@ -93,6 +87,9 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
 <!-- TemplateMela www.templatemela.com - End -->
 </head>
 <body class="<?php echo $body_class; ?>">
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-546e6f083234f682" async="async"></script>
 
     <!-- Start SiteHeart code -->
     <script>
@@ -161,10 +158,10 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
 
 <!-- Opencart 3 level Category Menu-->
 <div id="menu" class="main-menu">
-<div class="nav-responsive"><span>Menu</span><div class="expandable"></div></div>
+<div class="nav-responsive"><span>Меню</span><div class="expandable"></div></div>
   <ul class="main-navigation">
     <li><a href="<?php echo $home; ?>"><?php echo "Главная"; ?></a></li>
-    <li><a href="<?php echo '#'; ?>"><?php echo "Каталог товаров"; ?></a>
+    <li><a href="<?php echo '#'; ?>" onclick="return false;" style="cursor: default;"><?php echo "Каталог товаров"; ?></a>
 
           <?php if ($categories) { ?>
 
@@ -176,11 +173,11 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
 
           <?php } ?>
     </li>
-    <li><a href="<?php echo '#'; ?>"><?php echo "Акции"; ?></a></li>
-    <li><a href="<?php echo '#'; ?>"><?php echo "О нас" ?></a></li>
-    <li><a href="<?php echo '#'; ?>"><?php echo "Доставка и оплата" ?></a></li>
-    <li><a href="<?php echo '#'; ?>"><?php echo "Партнерам" ?></a></li>
-    <li class="last"><a href="<?php echo '#'; ?>"><?php echo "Контакты"; ?></a></li>
+    <li><a href="<?php echo '/product/special.html'; ?>"><?php echo "Акции"; ?></a></li>
+    <li><a href="<?php echo '/O-nas-i4.html'; ?>"><?php echo "О нас" ?></a></li>
+    <li><a href="<?php echo '/Dostavka-i-oplata-i6.html'; ?>"><?php echo "Доставка и оплата" ?></a></li>
+    <li><a href="<?php echo '/Kak-stat-partnyerom-i3.html'; ?>"><?php echo "Партнерам" ?></a></li>
+    <li class="last"><a href="<?php echo '/information/contact.html'; ?>"><?php echo "Контакты"; ?></a></li>
   </ul>
 </div>
 
