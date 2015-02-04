@@ -2061,16 +2061,18 @@ background-color:#ffa145;
 /* Shopping Cart */
 .cart-left-area{
 	float:left;
-	width:48%;
+	/*width:48%;*/
+	width:0px;
+	height:0px;
 }
 .cart-right-area{
 	float:right;
 	width:48%;
 }
-.cart-clear{ clear:both; overflow:hidden;}
-.cart-buttons{ border:none;}
+.cart-clear{ clear:right; overflow:hidden;}
+.cart-buttons{ border:none; padding:0px !Important;}
 .cart-buttons .right{ }
-.cart-buttons .center{ text-align:left;}
+.cart-buttons .center{ text-align:right;}
 
 /* orders */
 .order-list {
