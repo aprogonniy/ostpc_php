@@ -347,6 +347,7 @@ copyright-container{ clear:both;}
 #column-left {
 	float: left;
 	width: 221px;
+	min-width: 221px;
 }
 #column-right {
 	float: right;

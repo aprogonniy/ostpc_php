@@ -18,7 +18,7 @@
 	.header_bottom, 
 	.footer_bottom_inner{ width:940px; }
 	#column-left, #column-right { width:180px;}
-	#column-left + #column-right + #content, #column-left + #content { margin-left: 190px; }
+	#column-left + #column-right + #content, #column-left + #content { margin-left: 235px; }
 	#column-right + #content { margin-right: 190px; }
 	#footer .column{ width:224px; }
 	.nav-responsive , .toggle .mobile_togglemenu{display:none}
@@ -38,7 +38,7 @@
 	#column-right { display:none;}
 	
 	#column-left + #column-right + #content,
-	#column-left + #content { margin-left: 175px; }
+	#column-left + #content { margin-left: 235px; }
 	#column-right + #content { margin-right: 0; }
 	
 	#column-left .banner img,
