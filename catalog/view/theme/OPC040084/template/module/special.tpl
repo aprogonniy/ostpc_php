@@ -1,5 +1,7 @@
 <div class="box">
-  <div class="box-heading"><?php echo $heading_title; ?></div>
+<?php if (sizeof($products) !=0): ?>
+		<div class="box-heading"><?php echo $heading_title; ?></div>
+	<?php endif; ?>
   <div class="box-content">
  <!-- Megnor Start-->  
 	<?php 
