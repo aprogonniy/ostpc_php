@@ -1406,7 +1406,7 @@ background-color:#ffa145;
 #column-left .box-product .price,
 #column-right .box-product .price,
 #column-left .box-product .cart,
-#column-right .box-product .cart {margin-left:61px;  }
+#column-right .box-product .cart {margin-left:61px; overflow:hidden  }
 
 #column-left .box-product .rating,
 #column-right .box-product .rating {
