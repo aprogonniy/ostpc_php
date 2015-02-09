@@ -5,7 +5,9 @@ html {
 }
 body {
 	 color: #7F7355;
-    font-family: 'Marcellus',Arial,Helvetica,sans-serif;
+	 
+    /* Issue #15 font-family: 'Marcellus',Arial,Helvetica,sans-serif; */
+    font-family: Arial,Helvetica,sans-serif;
     font-size: 14px;
 	line-height:20px;
 	margin: 0px;
@@ -958,7 +960,8 @@ input.button {
 
 	height: 28px;
 	padding: 0px 12px 0px 12px;
-	font-family: 'Marcellus',Arial,Helvetica,sans-serif;
+    /* Issue #15 font-family: 'Marcellus',Arial,Helvetica,sans-serif; */
+    font-family: Arial,Helvetica,sans-serif;
 	 
 }
 .ie7 input.button  { padding:0 3px; } 
@@ -1421,7 +1424,7 @@ background-color:#ffa145;
 #column-left .box-product .price,
 #column-right .box-product .price,
 #column-left .box-product .cart,
-#column-right .box-product .cart {margin-left:61px;  }
+#column-right .box-product .cart {margin-left:61px; overflow:hidden  }
 
 #column-left .box-product .rating,
 #column-right .box-product .rating {
@@ -2668,4 +2671,13 @@ background-color:#ffa145;
 }
 #simplecheckout_shipping a:hover {
     color: #7F7355;
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (max-width: 767px) {
+	#sh_button {
+	top: 90% !important;
+	max-height: 40px;
+	min-height: 5px;
+	 }
 }
