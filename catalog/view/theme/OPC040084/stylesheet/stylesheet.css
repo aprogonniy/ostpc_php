@@ -437,6 +437,8 @@ background: url('../image/megnor/arrow-up.gif') right 6px no-repeat;
 	top:40px;
 	z-index: 9;
 	min-width: 180px;
+	
+	
 }
  #header #cart .heading {
 	float: right;
@@ -444,6 +446,7 @@ background: url('../image/megnor/arrow-up.gif') right 6px no-repeat;
 	z-index: 1; 
 	background:url(../image/cart.png) no-repeat scroll left center transparent;
 	padding:10px 0 10px 40px;
+	 
 }
 #header #cart .heading h4 { 
 	font-size: 14px;
@@ -478,13 +481,18 @@ background: url('../image/megnor/arrow-up.gif') right 6px no-repeat;
 	border-radius: 5px 5px 5px 5px;
 	background: #FFF;
 	 width:250px;
-}
+	 
+	
+	
+	 }
 #header #cart.active .content {
 	display: block;
+	width : 280px;
+	
 }
 .mini-cart-info table {
 	border-collapse: collapse;
-	width: 100%;
+	width: 290px;
 	margin-bottom: 5px;
 }
 .mini-cart-info td {
@@ -492,9 +500,12 @@ background: url('../image/megnor/arrow-up.gif') right 6px no-repeat;
 	vertical-align: top;
 	padding: 10px 5px;
 	border-bottom: 1px solid #F4F1E7;
+	max-width: 110px;
+	overflow:hidden;
+	text-overflow: ellipsis;
 }
 .mini-cart-info .image {
-	width: 1px;
+	width: 60px;
 }
 .mini-cart-info .image img {
 	border: 1px solid #F4F1E7;
@@ -506,13 +517,17 @@ background: url('../image/megnor/arrow-up.gif') right 6px no-repeat;
 }
 .mini-cart-info .quantity {
 	text-align: right;
+	width: 35px;
 }
 .mini-cart-info td.total {
 	text-align: right;
+	width: 70px;
 }
 .mini-cart-info .remove {
 	text-align: right;
+	width: 20px;
 }
+
 .mini-cart-info .remove img {
 	cursor: pointer;
 }
