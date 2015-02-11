@@ -73,8 +73,8 @@
 		</div>
 		
       <?php if ($price) { ?>
-      <div class="price"><?php echo $text_price; ?>
-        <?php if (!$special) { ?>
+      <div class="price"> <p>Уважаемые покупатели, в связи с текущей ситуацией на валютном рынке (частое изменение курса доллара), цена на товар может быть изменена. Окончательная стоимость будет посчитана оператором при подтверждении заказа по телефону.</p><br><?php echo $text_price; ?>
+       <?php if (!$special) { ?>
         <span id="formated_price" price="<?php echo $price_value; ?>"><?php echo $price; ?></span>
         <?php } else { ?>
         <span id="formated_price" class="price-old" price="<?php echo $price_value; ?>"><?php echo $price; /**/ ?></span> <span class="price-new"><span id="formated_special" price="<?php echo $special_value; ?>"><?php echo $special; /**/ ?></span></span>
@@ -315,8 +315,16 @@
           <input type="button" value="<?php echo $button_cart; ?>" id="button-cart" class="button" />
           <span>&nbsp;&nbsp;<?php echo $text_or; ?>&nbsp;&nbsp;</span>
           <span class="links">
-		  <a onclick="addToWishList('<?php echo $product_id; ?>');" class="product_wishlist"><?php echo $button_wishlist; ?></a> 
+         <?php 
+				if (!$logged)
+				{
+				}
+				else {?><a onclick="addToWishList('<?php echo $product_id; ?>');" class="product_wishlist"><?php echo $button_wishlist; ?></a><?php
+				}
+		?>
+		   
             <a onclick="addToCompare('<?php echo $product_id; ?>');" class="product_compare"><?php echo $button_compare; ?></a></span>
+            
         </div>
         <?php if ($minimum > 1) { ?>
         <div class="minimum"><?php echo $text_minimum; ?></div>
