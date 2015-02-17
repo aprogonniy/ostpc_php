@@ -172,13 +172,15 @@ $(document).ready(function() {
 			var offset = $(element).offset();
 						
 			if ((offset.top > 0) && (offset.top < height) && $(element).find('img').attr('src') == '<?php echo $no_image; ?>') {
-				$.ajax({
+				/*$.ajax({
 					url: 'index.php?route=common/filemanager/image&token=<?php echo $token; ?>&image=' + encodeURIComponent('data/' + $(element).find('input[name=\'image\']').attr('value')),
 					dataType: 'html',
 					success: function(html) {
 						$(element).find('img').replaceWith('<img src="' + html + '" alt="" title="" />');
 					}
-				});
+				});*/
+				
+				$(element).find('img').replaceWith('<img width="100" src="/image/data/' + $(element).find('input[name=\'image\']').attr('value') + '" alt="" title="" />');
 			}
 		});
 	});
@@ -238,10 +240,9 @@ $(document).ready(function() {
 					dataType: 'json',
 					success: function(json) {
 						html = '<div>';
-						
 						if (json) {
 							for (i = 0; i < json.length; i++) {
-								html += '<a><img src="<?php echo $no_image; ?>" alt="" title="" /><br />' + ((json[i]['filename'].length > 15) ? (json[i]['filename'].substr(0, 15) + '..') : json[i]['filename']) + '<br />' + json[i]['size'] + '<input type="hidden" name="image" value="' + json[i]['file'] + '" /></a>';
+								html += '<a><img src="'+'<?php echo $no_image; ?>'+'" alt="" title="" /><br />' + ((json[i]['filename'].length > 15) ? (json[i]['filename'].substr(0, 15) + '..') : json[i]['filename']) + '<br />' + json[i]['size'] + '<input type="hidden" name="image" value="' + json[i]['file'] + '" /></a>';
 							}
 						}
 						
