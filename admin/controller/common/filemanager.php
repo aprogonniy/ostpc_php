@@ -102,8 +102,7 @@ class ControllerCommonFileManager extends Controller {
 		$allowed = array(
 			'.jpg',
 			'.jpeg',
-			'.png',
-			'.gif'
+			'.png'
 		);
 
 		$files = glob(rtrim($directory, '/') . '/*');
@@ -442,7 +441,6 @@ class ControllerCommonFileManager extends Controller {
 					'image/pjpeg',
 					'image/png',
 					'image/x-png',
-					'image/gif',
 					'application/x-shockwave-flash'
 				);
 
@@ -453,7 +451,6 @@ class ControllerCommonFileManager extends Controller {
 				$allowed = array(
 					'.jpg',
 					'.jpeg',
-					'.gif',
 					'.png',
 					'.flv'
 				);
