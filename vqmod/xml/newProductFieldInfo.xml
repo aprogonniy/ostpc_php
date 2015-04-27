@@ -1,0 +1,70 @@
+<modification>
+	<id>Product New Fields Info</id>
+	<version>1.0</version>
+	<vqmver>2.4.1</vqmver>
+	<author>Stas</author>
+	<file name="admin/model/catalog/product.php">
+	<operation error="skip">
+		<search position="replace" index="1"><![CDATA[sku = '" . $this->db->escape($data['sku']) . "',]]></search>
+		<add><![CDATA[sku = '" . $this->db->escape($data['sku']) . "', newfield1 = '" . $this->db->escape($data['newfield1']) . "', ]]></add>
+	</operation>
+	<operation error="skip">
+		<search position="replace" index="2"><![CDATA[sku = '" . $this->db->escape($data['sku']) . "',]]></search>
+		<add><![CDATA[sku = '" . $this->db->escape($data['sku']) . "', newfield1 = '" . $this->db->escape($data['newfield1']) . "', ]]></add>
+	</operation>
+	<operation>
+		<search position="after" index="1" error="skip"><![CDATA[public function getProducts($data = array()) {]]></search>
+		<add><![CDATA[$exist = $this->db->query("SHOW COLUMNS FROM `" . DB_PREFIX . "product` WHERE Field = 'newfield1'");
+		if (count($exist->row) == 0) {
+		$this->db->query("ALTER TABLE `" . DB_PREFIX . "product` 
+		ADD COLUMN `newfield1` VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+		");
+		}]]></add>
+	</operation>
+	</file>
+	<file name="admin/controller/catalog/product.php">
+	<operation error="skip">
+		<search position="after" offset="1"><![CDATA[$this->data['sku'] = '';]]></search>
+		<add><![CDATA[
+		if (isset($this->request->post['newfield1'])) {
+      		$this->data['newfield1'] = $this->request->post['newfield1'];
+    	} elseif (!empty($product_info)) {
+			$this->data['newfield1'] = $product_info['newfield1'];
+		} else {
+      		$this->data['newfield1'] = '';
+    	}
+		]]></add>
+	</operation>
+	</file>
+	<file name="admin/view/template/catalog/product_form.tpl">
+	<operation error="skip">
+		<search position="after" offset="1"><![CDATA[<td><input type="text" name="sku" value="<?php echo $sku; ?>" /></td>]]></search>
+		<add><![CDATA[
+		<tr>
+              <td>Заголовок<br /><span class="help">Значение в теге &lt;title&gt;</span></td>
+              <td><input type="text" name="newfield1" value="<?php echo $newfield1; ?>" /></td>
+            </tr>
+		]]></add>
+	</operation>
+	</file>	
+	<file name="catalog/model/catalog/product.php">
+    <operation>
+        <search position="after">
+          	<![CDATA['viewed'           => $query->row['viewed']]]>
+            </search>
+        <add><![CDATA[
+		, 'newfield1'           => $query->row['newfield1']		
+		]]></add>
+        </operation>       
+	</file>
+	<file name="catalog/controller/product/product.php">
+    <operation>
+        <search position="after">
+          	<![CDATA[$this->data['reward'] = $product_info['reward'];]]>
+            </search>
+        <add><![CDATA[
+		if($product_info['newfield1']) $this->document->setTitle($product_info['newfield1']);		
+		]]></add>
+        </operation>       
+	</file>
+</modification>
