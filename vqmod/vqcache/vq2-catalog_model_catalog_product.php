@@ -4,7 +4,28 @@ class ModelCatalogProduct extends Model {
 		$this->db->query("UPDATE " . DB_PREFIX . "product SET viewed = (viewed + 1) WHERE product_id = '" . (int)$product_id . "'");
 	}
 
-	public function getProduct($product_id) {
+	public function getRelatedByCategory($product_id) {
+	$limit = 5;
+	$product_data = array();
+	$query = $this->db->query("SELECT `related_category` FROM `" . DB_PREFIX . "product` WHERE `product_id` = '" . (int)$product_id . "' LIMIT 1");
+	$category_list = $query->row['related_category'];
+	if ($category_list == '') {
+		$query = $this->db->query("SELECT DISTINCT(category_id) FROM `" . DB_PREFIX . "product_to_category` WHERE `product_id` = '" . (int)$product_id . "'");
+		$categories = array();
+		foreach ($query->rows as $category) {
+			$categories[] = $category['category_id'];
+		}
+		$category_list = implode(',', $categories);
+	}
+	if ($category_list != '') {
+		$query = $this->db->query("SELECT DISTINCT(p2c.product_id) FROM `" . DB_PREFIX . "product_to_category` p2c LEFT JOIN `" . DB_PREFIX . "product` p ON (p2c.product_id = p.product_id) LEFT JOIN `" . DB_PREFIX . "product_to_store` p2s ON (p.product_id = p2s.product_id) WHERE p2c.category_id IN ('" . $category_list . "') AND p2c.product_id != '" . (int)$product_id . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY RAND() LIMIT " . $limit);
+		foreach ($query->rows as $result) { 
+			$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+		}
+	}
+	return $product_data;
+}
+public function getProduct($product_id) {
 		if ($this->customer->isLogged()) {
 			$customer_group_id = $this->customer->getCustomerGroupId();
 		} else {
@@ -55,6 +76,9 @@ class ModelCatalogProduct extends Model {
 				'date_added'       => $query->row['date_added'],
 				'date_modified'    => $query->row['date_modified'],
 				'viewed'           => $query->row['viewed']
+
+		, 'newfield1'           => $query->row['newfield1']		
+		
 			);
 		} else {
 			return false;
