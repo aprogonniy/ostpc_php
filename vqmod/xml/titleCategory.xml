@@ -1,0 +1,63 @@
+<modification>
+	<id>Category Title</id>
+	<version>1.0</version>
+	<vqmver>2.4.1</vqmver>
+	<author>Stas</author>
+	<file name="admin/model/catalog/category.php">
+	<operation error="skip">
+		<search position="replace" index="1"><![CDATA[parent_id = '" . (int)$data['parent_id'] . "',]]></search>
+		<add><![CDATA[parent_id = '" . (int)$data['parent_id'] . "', titleCategory = '" . $this->db->escape($data['titleCategory']) . "', ]]></add>
+	</operation>
+	<operation error="skip">
+		<search position="replace" index="2"><![CDATA[parent_id = '" . (int)$data['parent_id'] . "',]]></search>
+		<add><![CDATA[parent_id = '" . (int)$data['parent_id'] . "', titleCategory = '" . $this->db->escape($data['titleCategory']) . "', ]]></add>
+	</operation>
+	<operation>
+		<search position="after" index="1" error="skip"><![CDATA[public function getCategories($data) {]]></search>
+		<add><![CDATA[$exist = $this->db->query("SHOW COLUMNS FROM `" . DB_PREFIX . "category` WHERE Field = 'titleCategory'");
+		if (count($exist->row) == 0) {
+		$this->db->query("ALTER TABLE `" . DB_PREFIX . "category` 
+		ADD COLUMN `titleCategory` VARCHAR(256) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+		");
+		}]]></add>
+	</operation>
+	</file>
+	<file name="admin/controller/catalog/category.php">
+	<operation error="skip">
+		<search position="after" offset="1"><![CDATA[$this->data['parent_id'] = 0;]]></search>
+		<add><![CDATA[
+		if (isset($this->request->post['titleCategory'])) {
+      		$this->data['titleCategory'] = $this->request->post['titleCategory'];
+    	} elseif (!empty($category_info)) {
+			$this->data['titleCategory'] = $category_info['titleCategory'];
+		} else {
+      		$this->data['titleCategory'] = '';
+    	}
+		/*print '<pre>';
+		print_r($this->data);
+		die();*/
+		]]></add>
+	</operation>
+	</file>
+	<file name="admin/view/template/catalog/category_form.tpl">
+	<operation error="skip">
+		<search position="after" offset="1"><![CDATA[<input type="hidden" name="parent_id" value="<?php echo $parent_id; ?>" /></td>]]></search>
+		<add><![CDATA[
+		<tr>
+              <td>Заголовок<br /><span class="help">Значение в теге &lt;title&gt;</span></td>
+              <td><input type="text" name="titleCategory" value="<?php echo $titleCategory; ?>" /></td>
+            </tr>
+		]]></add>
+	</operation>
+	</file>	
+	<file name="catalog/controller/product/category.php">
+    <operation>
+        <search position="after">
+          	<![CDATA[$this->document->setTitle($category_info['name']);]]>
+            </search>
+        <add><![CDATA[
+		if($category_info['titleCategory']) $this->document->setTitle($category_info['titleCategory']);		
+		]]></add>
+        </operation>       
+	</file>
+</modification>
