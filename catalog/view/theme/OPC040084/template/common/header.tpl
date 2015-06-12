@@ -68,6 +68,10 @@ $http_type = "https:";} else {$http_type = "http:";}
 <script type="text/javascript" src="<?php echo $script; ?>"></script>
 <?php } ?>
 
+<script src="catalog/view/javascript/megnor/sweetalert.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $this->config->get('config_template') ?>/stylesheet/megnor/sweetalert.css">
+
+
 <!--[if lt IE 7]>
 <script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
 <script type="text/javascript">
@@ -75,7 +79,67 @@ DD_belatedPNG.fix('#logo img');
 </script>
 <![endif]-->
 		
-			  
+<script> 
+$(document).ready(function() {
+$("#kievstar").click(function(){
+	swal({   
+		title: "Киевстар",   
+		text: "Для того, чтобы связаться с нами,\n наберите +38 (097) 979 3829",
+		allowEscapeKey: true,
+		allowOutsideClick: true,
+		imageUrl:"catalog/view/theme/OPC040084/image/PhoneIcons/kievstar.png",
+		imageSize: "80x80",
+		confirmButtonText: "OK" 
+	});
+});
+$("#kyiv").click(function(){
+	swal({   
+		title: "Киев",   
+		text: "Для того, чтобы связаться с нами,\n наберите +38 (044) 209 4022",
+		allowEscapeKey: true,
+		allowOutsideClick: true,
+		imageUrl:"catalog/view/theme/OPC040084/image/PhoneIcons/kyiv.png",
+		imageSize: "80x80",
+		confirmButtonText: "OK" 
+	});
+});
+$("#kharkiv").click(function(){
+	swal({   
+		title: "Харьков",   
+		text: "Для того, чтобы связаться с нами,\n наберите +38 (057) 713 7244",
+		allowEscapeKey: true,
+		allowOutsideClick: true,
+		imageUrl:"catalog/view/theme/OPC040084/image/PhoneIcons/kharkiv.png",
+		imageSize: "80x80",
+		confirmButtonText: "OK" 
+	});
+});
+$("#mts").click(function(){
+	swal({   
+		title: "МТС",   
+		text: "Для того, чтобы связаться с нами,\n наберите +38 (066) 055 4401",
+		allowEscapeKey: true,
+		allowOutsideClick: true,
+		imageUrl:"catalog/view/theme/OPC040084/image/PhoneIcons/mts1.png",
+		imageSize: "80x80",
+		confirmButtonText: "OK" 
+	});
+});
+$("#life").click(function(){
+	swal({   
+		title: "Лайф",   
+		text: "Для того, чтобы связаться с нами,\n наберите +38 (063) 273 1963",
+		allowEscapeKey: true,
+		allowOutsideClick: true,
+		imageUrl:"catalog/view/theme/OPC040084/image/PhoneIcons/life1.png",
+		imageSize: "80x80",
+		confirmButtonText: "OK" 
+	});
+});
+
+});
+
+</script>			  
 <?php if ($stores) { ?>
 <script type="text/javascript"><!--
 $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></iframe>');<?php } ?>});//--></script>
@@ -115,6 +179,28 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
 <header id="header-container_main">
 <header id="header-container">
 	<div id="header">
+	<div class="header-top-phones">
+		<div class = "phone-to-image"> 
+			<img class = "phoneIcon" id = "kharkiv" src="catalog/view/theme/OPC040084/image/PhoneIcons/kharkiv.png"/>
+			<span class="phoneNumber">+38(057) 713 7244</span>
+		</div>
+		<div class = "phone-to-image">
+			<img class = "phoneIcon" id = "kyiv" src="catalog/view/theme/OPC040084/image/PhoneIcons/kyiv.png"/>		
+			<span class="phoneNumber">+38(044) 209 4022</span>
+		</div>
+		<div class = "phone-to-image">
+			<img class = "phoneIcon" id = "kievstar" src="catalog/view/theme/OPC040084/image/PhoneIcons/kievstar.png"/>		
+			<span class="phoneNumber">+38(097) 979 3829</span>
+		</div>
+		<div class = "phone-to-image"> 
+			<img class = "phoneIcon" id = "life" src="catalog/view/theme/OPC040084/image/PhoneIcons/life1.png"/>	
+			<span class="phoneNumber">+38(063) 273 1963</span>
+		</div>
+		<div class = "phone-to-image"> 
+			<img class = "phoneIcon" id = "mts" src="catalog/view/theme/OPC040084/image/PhoneIcons/mts1.png"/>
+			<span class="phoneNumber">+38(066) 055 4401</span>
+		</div>
+	</div>
 		<div class="header-left">  <!--megnor 'header-left' start -->
 		<div class="custom_footer_main column">
 			<?php echo $content_header_block; ?>

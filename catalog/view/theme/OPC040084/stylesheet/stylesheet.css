@@ -2685,3 +2685,27 @@ background-color:#ffa145;
 width: 156px;
 height: 176px;
 }
+#header .header-top-phones {
+  padding: 10px 5px;
+  height: 20px;
+}
+.phone-to-image {
+float:left;
+margin-left:10px;
+}
+.phoneIcon {
+width: 20px;
+height:20px;
+}
+#header > div.header-top-phones > div > span {
+vertical-align:top;
+}
+@media (max-width: 980px) {
+  .phoneNumber {
+	display:none;
+  }
+  .phoneIcon {
+	cursor:pointer;
+  }
+}
+
