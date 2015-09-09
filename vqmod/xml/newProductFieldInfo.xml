@@ -6,11 +6,11 @@
 	<file name="admin/model/catalog/product.php">
 	<operation error="skip">
 		<search position="replace" index="1"><![CDATA[sku = '" . $this->db->escape($data['sku']) . "',]]></search>
-		<add><![CDATA[sku = '" . $this->db->escape($data['sku']) . "', newfield1 = '" . $this->db->escape($data['newfield1']) . "', ]]></add>
+		<add><![CDATA[sku = '" . $this->db->escape($data['sku']) . "', newfield1 = '" . $this->db->escape($data['newfield1']) . "', deferredPayment = '" . $this->db->escape($data['deferredPayment']) . "', ]]></add>
 	</operation>
 	<operation error="skip">
 		<search position="replace" index="2"><![CDATA[sku = '" . $this->db->escape($data['sku']) . "',]]></search>
-		<add><![CDATA[sku = '" . $this->db->escape($data['sku']) . "', newfield1 = '" . $this->db->escape($data['newfield1']) . "', ]]></add>
+		<add><![CDATA[sku = '" . $this->db->escape($data['sku']) . "', newfield1 = '" . $this->db->escape($data['newfield1']) . "', deferredPayment = '" . $this->db->escape($data['deferredPayment']) . "', ]]></add>
 	</operation>
 	<operation>
 		<search position="after" index="1" error="skip"><![CDATA[public function getProducts($data = array()) {]]></search>
@@ -18,6 +18,12 @@
 		if (count($exist->row) == 0) {
 		$this->db->query("ALTER TABLE `" . DB_PREFIX . "product` 
 		ADD COLUMN `newfield1` VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+		");
+		}
+		$exist = $this->db->query("SHOW COLUMNS FROM `" . DB_PREFIX . "product` WHERE Field = 'deferredPayment'");
+		if (count($exist->row) == 0) {
+		$this->db->query("ALTER TABLE `" . DB_PREFIX . "product` 
+		ADD COLUMN `deferredPayment` TINYINT(1) NOT NULL
 		");
 		}]]></add>
 	</operation>
@@ -33,6 +39,13 @@
 		} else {
       		$this->data['newfield1'] = '';
     	}
+		if (isset($this->request->post['deferredPayment'])) {
+      		$this->data['deferredPayment'] = $this->request->post['deferredPayment'];
+    	} elseif (!empty($product_info)) {
+			$this->data['deferredPayment'] = $product_info['deferredPayment'];
+		} else {
+      		$this->data['deferredPayment'] = '';
+    	}
 		]]></add>
 	</operation>
 	</file>
@@ -44,6 +57,20 @@
               <td>Заголовок<br /><span class="help">Значение в теге &lt;title&gt;</span></td>
               <td><input type="text" name="newfield1" value="<?php echo $newfield1; ?>" /></td>
             </tr>
+		<tr>
+              <td>Отложенный платеж</td>
+              <td><?php if ($deferredPayment) { ?>
+                <input type="radio" name="deferredPayment" value="1" checked="checked" />
+                <?php echo $text_yes; ?>
+                <input type="radio" name="deferredPayment" value="0" />
+                <?php echo $text_no; ?>
+                <?php } else { ?>
+                <input type="radio" name="deferredPayment" value="1" />
+                <?php echo $text_yes; ?>
+                <input type="radio" name="deferredPayment" value="0" checked="checked" />
+                <?php echo $text_no; ?>
+                <?php } ?></td>
+            </tr>
 		]]></add>
 	</operation>
 	</file>	
@@ -53,7 +80,7 @@
           	<![CDATA['viewed'           => $query->row['viewed']]]>
             </search>
         <add><![CDATA[
-		, 'newfield1'           => $query->row['newfield1']		
+		, 'newfield1'           => $query->row['newfield1']	, 'deferredPayment'           => $query->row['deferredPayment']	
 		]]></add>
         </operation>       
 	</file>

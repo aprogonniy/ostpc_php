@@ -169,6 +169,7 @@ class ControllerCheckoutSimpleCheckoutPayment extends Controller {
         
         $this->data['payment_methods'] = $method_data;    
         $this->data['payment_method'] = null;
+        $this->data['isDeferred'] = $this->cart->isDeferredPayment();
         $this->data['error_warning'] = '';
 
         $this->data['checked_code'] = '';

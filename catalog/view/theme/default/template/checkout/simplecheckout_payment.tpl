@@ -1,3 +1,16 @@
+<?php
+$deferredName = 'deferred';
+if($isDeferred){
+	$t = $payment_methods[$deferredName];
+	$payment_methods = array();
+	$payment_methods[$deferredName] = $t;
+}
+else{
+	unset($payment_methods[$deferredName]);
+}
+/*print '<pre>';
+print_r($payment_methods);*/
+?>
 <div class="simplecheckout-block-heading"><?php echo $text_checkout_payment_method ?></div>
 <?php if ($simple_show_errors && $error_warning) { ?>
     <div class="simplecheckout-warning-block"><?php echo $error_warning ?></div>

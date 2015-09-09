@@ -293,6 +293,7 @@ class Cart {
 						'recurring_trial_price'     => $recurring_trial_price,
 						'recurring_trial_cycle'     => $recurring_trial_cycle,
 						'recurring_trial_duration'  => $recurring_trial_duration,
+						'deferred_field'			=> $product_query->row['deferredPayment'],
 					);
 				} else {
 					$this->remove($key);
@@ -301,6 +302,17 @@ class Cart {
 		}
 
 		return $this->data;
+	}
+	
+	public function isDeferredPayment(){
+		
+		foreach ($this->getProducts() as $key => $value) {
+			if ($value['deferred_field']) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 	public function getRecurringProducts(){
