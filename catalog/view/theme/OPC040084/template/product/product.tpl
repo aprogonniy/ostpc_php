@@ -1,6 +1,6 @@
 <?php echo $header; ?><?php echo $column_left; ?><?php echo $column_right; ?>
 <div id="content"><?php echo $content_top; ?> 
-  <div class="breadcrumb" xmlns:v="<?php echo $http_type;?>//rdf.data-vocabulary.org/#" id="brd-crumbs"  >
+  <div class="breadcrumb" xmlns:v="<?php if(isset($http_type)) { echo $http_type; } ?>//rdf.data-vocabulary.org/#" id="brd-crumbs"  >
   
 	<ul>
 		<?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -79,8 +79,10 @@
         <?php } else { ?>
         <span class="price-old"><?php echo $price; ?></span> <span class="price-new"><?php echo $special; ?></span>
         <?php } ?>
-        
-        <?php if ($tax) { ?>
+
+        <div id="price_warning"><div class="attention">Уважаемые покупатели, в связи с текущей ситуацией на валютном рынке (частое изменение курса валют), цена на товар может отличатся от указанной на сайте.<br>Окончательная стоимость будет посчитана оператором при подтверждении заказа по телефону.</div></div>
+
+          <?php if ($tax) { ?>
         <span class="price-tax"><?php echo $text_tax; ?> <?php echo $tax; ?></span><br />
         <?php } ?>
         <?php if ($points) { ?>
@@ -96,7 +98,7 @@
         <?php } ?>
       </div>
       <?php } ?>
-      <?php if ($profiles): ?>
+      <?php if (isset($profiles)): ?>
       <div class="option">
           <h2><span class="required">*</span><?php echo $text_payment_profile ?></h2>
           <br />
@@ -412,15 +414,15 @@
   </div>
   <?php } ?>
   <?php echo $content_bottom; ?></div>
-<script type="text/javascript"><!--
+<script type="text/javascript">
 $(document).ready(function() {
-	$('.colorbox').colorbox({
-		overlayClose: true,
-		opacity: 0.5,
-		rel: "colorbox"
-	});
+//	$('.colorbox').colorbox({
+//		overlayClose: true,
+//		opacity: 0.5,
+//		rel: "colorbox"
+//	});
 });
-//--></script> 
+</script>
 <script type="text/javascript"><!--
 
 $('select[name="profile_id"], input[name="quantity"]').change(function(){

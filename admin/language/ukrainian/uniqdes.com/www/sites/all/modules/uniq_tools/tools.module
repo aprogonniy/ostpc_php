@@ -1,0 +1,224 @@
+<?php
+
+/*
+ * Settings page
+ */
+function tools_menu() {
+
+    $items = array();
+
+    $items['admin/config/uniq'] = array(
+        'title' => 'Uniq settings',
+        'description' => 'Configuration page for uniq theme.',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('uniq_admin_form'),
+        'access arguments' => array('access content'),
+        'type' => MENU_CALLBACK,
+    );
+
+    return $items;
+}
+
+function uniq_admin_form() {
+    $form = array();
+
+    $form['uniq_email'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Контактный e-mail'),
+        '#default_value' => variable_get('site_mail', ''),
+        '#size' => 60,
+        '#maxlength' => 20,
+        '#description' => t("Контактный e-mail для отображения в шапке сайта."),
+        '#required' => FALSE,
+    );
+
+    $form['uniq_skype'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Контактный skype'),
+        '#default_value' => variable_get('site_skype', ''),
+        '#size' => 60,
+        '#maxlength' => 15,
+        '#description' => t("Контактный skype для отображения в шапке сайта."),
+        '#required' => FALSE,
+    );
+
+    $form['uniq_phone'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Контактный телефон'),
+        '#default_value' => variable_get('site_phone', ''),
+        '#size' => 60,
+        '#maxlength' => 20,
+        '#description' => t("Контактный телефон для отображения в шапке сайта."),
+        '#required' => FALSE,
+    );
+
+    $form['#validate'] = array('uniq_admin_validate');
+    $form['#submit'] = array('uniq_admin_submit');
+
+    return system_settings_form($form);
+}
+
+function uniq_admin_validate($form, &$form_state) {
+
+    if(!filter_var($form_state['values']['uniq_email'], FILTER_VALIDATE_EMAIL ))
+    {
+        form_set_error('uniq_email', t('Некорректный формат e-mail.'));
+    }
+}
+
+function uniq_admin_submit($form, &$form_state) {
+
+    variable_set('site_phone', $form_state['values']['uniq_phone']);
+    variable_set('site_skype', $form_state['values']['uniq_skype']);
+    variable_set('site_mail', $form_state['values']['uniq_email']);
+
+    drupal_set_message("Настройки были успешно сохранены.");
+}
+
+
+
+
+/*
+ * Theme callbacks
+ */
+
+function uniq_navigation($page_num)
+{
+    $menu = '';
+    switch($page_num){
+        case 1:
+            $menu = '
+                        <div id="navi">
+                            <ul>
+                                <a href="/главная"><li class="current-page-selected">Главная</li></a>
+                                <a href="/дизайн-услуги"><li>Дизайн услуги</li></a>
+                                <a href="/портфолио"><li>Портфолио</li></a>
+                                <a href="/новости"><li>Новости</li></a>
+                                <a href="/отзывы"><li>Отзывы</li></a>
+                                <a href="/контакты"><li>Контакты</li></a>
+                            </ul>
+                        </div>
+                    ';
+            break;
+        case 2:
+            $menu = '
+                        <div id="navi">
+                            <ul>
+                                <a href="/главная"><li>Главная</li></a>
+                                <a href="/дизайн-услуги"><li class="current-page-selected">Дизайн услуги</li></a>
+                                <a href="/портфолио"><li>Портфолио</li></a>
+                                <a href="/новости"><li>Новости</li></a>
+                                <a href="/отзывы"><li>Отзывы</li></a>
+                                <a href="/контакты"><li>Контакты</li></a>
+                            </ul>
+                        </div>
+                    ';
+            break;
+        case 3:
+            $menu = '
+                        <div id="navi">
+                            <ul>
+                                <a href="/главная"><li>Главная</li></a>
+                                <a href="/дизайн-услуги"><li>Дизайн услуги</li></a>
+                                <a href="/портфолио"><li class="current-page-selected">Портфолио</li></a>
+                                <a href="/новости"><li>Новости</li></a>
+                                <a href="/отзывы"><li>Отзывы</li></a>
+                                <a href="/контакты"><li>Контакты</li></a>
+                            </ul>
+                        </div>
+                    ';
+            break;
+        case 4:
+            $menu = '
+                        <div id="navi">
+                            <ul>
+                                <a href="/главная"><li>Главная</li></a>
+                                <a href="/дизайн-услуги"><li>Дизайн услуги</li></a>
+                                <a href="/портфолио"><li>Портфолио</li></a>
+                                <a href="/новости"><li class="current-page-selected">Новости</li></a>
+                                <a href="/отзывы"><li>Отзывы</li></a>
+                                <a href="/контакты"><li>Контакты</li></a>
+                            </ul>
+                        </div>
+                    ';
+            break;
+        case 5:
+            $menu = '
+                        <div id="navi">
+                            <ul>
+                                <a href="/главная"><li>Главная</li></a>
+                                <a href="/дизайн-услуги"><li>Дизайн услуги</li></a>
+                                <a href="/портфолио"><li>Портфолио</li></a>
+                                <a href="/новости"><li>Новости</li></a>
+                                <a href="/отзывы"><li class="current-page-selected">Отзывы</li></a>
+                                <a href="/контакты"><li>Контакты</li></a>
+                            </ul>
+                        </div>
+                    ';
+            break;
+        case 6:
+            $menu = '
+                        <div id="navi">
+                            <ul>
+                                <a href="/главная"><li>Главная</li></a>
+                                <a href="/дизайн-услуги"><li>Дизайн услуги</li></a>
+                                <a href="/портфолио"><li>Портфолио</li></a>
+                                <a href="/новости"><li>Новости</li></a>
+                                <a href="/отзывы"><li>Отзывы</li></a>
+                                <a href="/контакты"><li class="current-page-selected">Контакты</li></a>
+                            </ul>
+                        </div>
+                    ';
+            break;
+        default:
+            $menu = '
+                        <div id="navi">
+                            <ul>
+                                <a href="/главная"><li>Главная</li></a>
+                                <a href="/дизайн-услуги"><li>Дизайн услуги</li></a>
+                                <a href="/портфолио"><li>Портфолио</li></a>
+                                <a href="/новости"><li>Новости</li></a>
+                                <a href="/отзывы"><li>Отзывы</li></a>
+                                <a href="/контакты"><li>Контакты</li></a>
+                            </ul>
+                        </div>
+                    ';
+    }
+
+    return $menu;
+}
+
+function uniq_vk_group()
+{
+    return '
+        <script type="text/javascript" src="//vk.com/js/api/openapi.js?101"></script>
+
+        <!-- VK Widget -->
+        <div id="vk_groups"></div>
+        <script type="text/javascript">
+            VK.Widgets.Group("vk_groups", {mode: 0, width: "258", height: "330"}, 35313998);
+        </script>
+    ';
+}
+
+function uniq_add_this()
+{
+    return '
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_facebook"></a>
+            <a class="addthis_button_vk"></a>
+            <a class="addthis_button_twitter"></a>
+            <a class="addthis_button_mymailru"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4fdb9d1b7d77306b"></script>
+        <!-- AddThis Button END -->
+    ';
+}
+
+function uniq_get_nodes($type)
+{
+    return node_load_multiple(array(), array('type' => $type));
+}

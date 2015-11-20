@@ -18,7 +18,7 @@
 	.header_bottom, 
 	.footer_bottom_inner{ width:940px; }
 	#column-left, #column-right { width:180px;}
-	#column-left + #column-right + #content, #column-left + #content { margin-left: 235px; }
+	#column-left + #column-right + #content, #column-left + #content { margin-left: 190px; }
 	#column-right + #content { margin-right: 190px; }
 	#footer .column{ width:224px; }
 	.nav-responsive , .toggle .mobile_togglemenu{display:none}
@@ -38,7 +38,7 @@
 	#column-right { display:none;}
 	
 	#column-left + #column-right + #content,
-	#column-left + #content { margin-left: 235px; }
+	#column-left + #content { margin-left: 175px; }
 	#column-right + #content { margin-right: 0; }
 	
 	#column-left .banner img,
@@ -48,7 +48,7 @@
 
     #header #cart .heading {background: none;}
  
-	#footer .column { width:95%;margin-left:5% !important;}
+	#footer .column { width:100%;margin:0;}
 	#footer .column ul { display:none;padding-bottom:20px; }	
 	.nav-responsive {display:block} 
 	.product-info .cart span{  display:none;}
@@ -163,6 +163,7 @@
 	#colorbox , #cboxOverlay{ display:none !important;} 
 	#header #logo{margin-top:60px;}
 	.flexslider{margin:10px 0;}
+    .header-top-phones{display:none;}
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
@@ -188,6 +189,14 @@
 	 .product-info .image-additional a{ float:none; text-align:center; }
 	 #header #search{width:95%;}
 	 .product-info > .left{width:275px;}
+
+     #sh_button {top:100px!important;min-height:inherit!important;}
+     #sh_button .sh_title_text {display:none;}
+     #sh_button .sh_block_counter {display:none;}
+
+    #footer {
+        padding: 20px 0px;
+    }
 }
 
 /* Mobile Landscape Size to Mobile Portrait (devices and browsers) */

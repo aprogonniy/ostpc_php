@@ -1,0 +1,21 @@
+name = Uniq
+description = Awesome theme by aprogonniy for uniqdes.com.
+package = Core
+version = VERSION
+core = 7.x
+
+stylesheets[all][] = css/main.css
+
+
+stylesheets[all][] = css/style.css
+
+scripts[] = js/jquery.nivo.slider.js
+scripts[] = js/jquery.prettyPhoto.js
+scripts[] = js/jquery.isotope.min.js
+scripts[] = js/custom.js
+scripts[] = js/index.js
+
+;regions[column_right] = Column right
+
+;settings[shortcut_module_link] = 0
+

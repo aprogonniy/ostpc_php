@@ -89,7 +89,7 @@
     border: 1px solid #EEEEEE;
 }
 .simpleregister-block-content .simplecheckout-customer {
-    width: 50%;
+    width: 100%;
 }
 @media only screen and (max-width:600px) {
     .simpleregister-block-content .simplecheckout-customer {
@@ -116,16 +116,17 @@
     width: 100%;
 }
 .simplecheckout-methods-table td.code {
-    width: 1px;
+    width: 1%;
 }
 .simplecheckout-methods-table td.title {
+    width: 59%;
     padding: 5px;    
 }
 .simplecheckout-methods-table td.title label {
     display: block !important;   
 }
 .simplecheckout-methods-table td.quote {
-    width: 15%;
+    width: 40%;
     text-align: right;
 }
 .simplecheckout-required {
@@ -214,15 +215,15 @@
 }
 .simplecheckout-customer-left {
     padding-right: 10px;
-    width: 50%;
+    width: 30%;
     text-align: left;  
 }
 .simplecheckout-customer-right {
-    width: 50%;
+    width: 70%;
     text-align: left;
 }
 .simplecheckout-customer-right input[type=text],.simplecheckout-customer-right input[type=password],.simplecheckout-customer-right textarea,.simplecheckout-customer-right select {
-    width: 99%;
+    width: 60%;
 }
 .simplecheckout-customer-one-column {
     margin-bottom: 0px;
@@ -231,9 +232,9 @@
 }
 .simplecheckout-customer-two-column-left {
     float: left;
-    margin-right: 20px;
+    margin-right: 0px;
     margin-bottom: 0px;
-    width: 48%;
+    width: 100%;
     text-align: left;
 }
 .simplecheckout-customer-two-column-right {
@@ -610,4 +611,10 @@
 }
 .simplecheckout-summary-info td {
     text-align: left;
+}
+.registration-line-wrap .simplecheckout-customer-left {
+    width: 30%;
+}
+.registration-line-wrap .simplecheckout-customer-right {
+    width: 70%;
 }

@@ -1,7 +1,6 @@
+<?php if(count($products) > 0): ?>
 <div class="box">
-<?php if (sizeof($products) !=0): ?>
-		<div class="box-heading"><?php echo $heading_title; ?></div>
-	<?php endif; ?>
+  <div class="box-heading"><?php echo $heading_title; ?></div>
   <div class="box-content">
  <!-- Megnor Start-->  
 	<?php 
@@ -50,3 +49,4 @@
   </div>
 </div>
 <span class="special_default_width" style="display:none; visibility:hidden"></span>
+<?php endif; ?>

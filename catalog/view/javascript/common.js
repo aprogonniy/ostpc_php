@@ -144,7 +144,7 @@ function addToWishList(product_id) {
 		data: 'product_id=' + product_id,
 		dataType: 'json',
 		success: function(json) {
-			$('.success, .warning, .attention, .information').remove();
+			$('#notification .success, #notification .warning, #notification .attention, #notification .information').remove();
 						
 			if (json['success']) {
 				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
@@ -154,7 +154,15 @@ function addToWishList(product_id) {
 				$('#wishlist-total').html(json['total']);
 				
 				$('html, body').animate({ scrollTop: 0 }, 'slow');
-			}	
+			} else if (json['attention']) {
+                $('#notification').html('<div class="attention" style="display: none;">' + json['attention'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+
+                $('.attention').fadeIn('slow');
+
+                $('#wishlist-total').html(json['total']);
+
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+            }
 		}
 	});
 }

@@ -55,7 +55,7 @@
         <?php } ?>
       </div>
       <?php } ?>
-      <?php if ($profiles): ?>
+      <?php if (isset($profiles)): ?>
       <div class="option">
           <h2><span class="required">*</span><?php echo $text_payment_profile ?></h2>
           <br />

@@ -1,7 +1,11 @@
 <?php 
 class ControllerAccountWishList extends Controller {
 	public function index() {
-		
+		if (!$this->customer->isLogged()) {
+			$this->session->data['redirect'] = $this->url->link('account/wishlist', '', 'SSL');
+
+			$this->redirect($this->url->link('account/login', '', 'SSL'));
+		}
 
 		$this->language->load('account/wishlist');
 
@@ -139,39 +143,38 @@ class ControllerAccountWishList extends Controller {
 	}
 
 	public function add() {
-		$this->language->load('account/wishlist');
+        $this->language->load('account/wishlist');
 
-		$json = array();
+        $json = array();
 
-		if (!isset($this->session->data['wishlist'])) {
-			$this->session->data['wishlist'] = array();
-		}
+        if (!isset($this->session->data['wishlist'])) {
+            $this->session->data['wishlist'] = array();
+        }
 
-		if (isset($this->request->post['product_id'])) {
-			$product_id = $this->request->post['product_id'];
-		} else {
-			$product_id = 0;
-		}
+        if (isset($this->request->post['product_id'])) {
+            $product_id = $this->request->post['product_id'];
+        } else {
+            $product_id = 0;
+        }
 
-		$this->load->model('catalog/product');
+        $this->load->model('catalog/product');
 
-		$product_info = $this->model_catalog_product->getProduct($product_id);
+        $product_info = $this->model_catalog_product->getProduct($product_id);
 
-		if ($product_info) {
-			if (!in_array($this->request->post['product_id'], $this->session->data['wishlist'])) {	
-				$this->session->data['wishlist'][] = $this->request->post['product_id'];
-			}
+        if ($product_info) {
+            if ($this->customer->isLogged()) {
+                if (!in_array($this->request->post['product_id'], $this->session->data['wishlist'])) {
+                    $this->session->data['wishlist'][] = $this->request->post['product_id'];
+                }
+                $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));
+            } else {
+                $json['attention'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', 'SSL'), $this->url->link('account/register', '', 'SSL'), $this->url->link('account/wishlist'));
+            }
 
-			if ($this->customer->isLogged()) {			
-				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));				
-			} else {
-				$json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', 'SSL'), $this->url->link('account/register', '', 'SSL'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('account/wishlist'));				
-			}
+            $json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
+        }
 
-			$json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
-		}	
-
-		$this->response->setOutput(json_encode($json));
-	}	
+        $this->response->setOutput(json_encode($json));
+	}
 }
 ?>

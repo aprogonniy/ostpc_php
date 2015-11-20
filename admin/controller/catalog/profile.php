@@ -42,21 +42,23 @@ class ControllerCatalogProfile extends Controller {
 
 		$profiles = $this->model_catalog_profile->getProfiles();
 
-		foreach ($profiles as $profile) {
-			$action = array();
+        if($profiles) {
+            foreach ($profiles as $profile) {
+                $action = array();
 
-			$action[] = array(
-				'href' => $this->url->link('catalog/profile/update', 'token=' . $this->session->data['token'] . '&profile_id=' . $profile['profile_id'], 'SSL'),
-				'name' => $this->language->get('text_edit'),
-			);
+                $action[] = array(
+                    'href' => $this->url->link('catalog/profile/update', 'token=' . $this->session->data['token'] . '&profile_id=' . $profile['profile_id'], 'SSL'),
+                    'name' => $this->language->get('text_edit'),
+                );
 
-			$this->data['profiles'][] = array(
-				'profile_id' => $profile['profile_id'],
-				'name' => $profile['name'],
-				'sort_order' => $profile['sort_order'],
-				'action' => $action,
-			);
-		}
+                $this->data['profiles'][] = array(
+                    'profile_id' => $profile['profile_id'],
+                    'name' => $profile['name'],
+                    'sort_order' => $profile['sort_order'],
+                    'action' => $action,
+                );
+            }
+        }
 
 		$this->data['insert'] = $this->url->link('catalog/profile/insert', 'token=' . $this->session->data['token'], 'SSL');
 		$this->data['copy'] = $this->url->link('catalog/profile/copy', 'token=' . $this->session->data['token'], 'SSL');

@@ -102,7 +102,8 @@ class ControllerCommonFileManager extends Controller {
 		$allowed = array(
 			'.jpg',
 			'.jpeg',
-			'.png'
+			'.png',
+			'.gif'
 		);
 
 		$files = glob(rtrim($directory, '/') . '/*');
@@ -440,8 +441,9 @@ class ControllerCommonFileManager extends Controller {
 					'image/jpeg',
 					'image/pjpeg',
 					'image/png',
-					'image/x-png',
-					'application/x-shockwave-flash'
+					'image/x-png'
+//					'image/gif',
+//					'application/x-shockwave-flash'
 				);
 
 				if (!in_array($this->request->files['image']['type'], $allowed)) {
@@ -451,8 +453,9 @@ class ControllerCommonFileManager extends Controller {
 				$allowed = array(
 					'.jpg',
 					'.jpeg',
-					'.png',
-					'.flv'
+//					'.gif',
+					'.png'
+//					'.flv'
 				);
 
 				if (!in_array(strtolower(strrchr($filename, '.')), $allowed)) {

@@ -13,7 +13,7 @@
 	</div>
 
 	  <?php if ($informations) { ?>
-	  <div class="column" style="margin-left: 65px;">
+	  <div class="column">
 		<h3><?php echo $text_information; ?></h3>
 		<ul>
 		  <?php foreach ($informations as $information) { ?>
@@ -94,5 +94,31 @@
 	 $("#column-left .box-heading").wrap('<div class="title_inner_block"></div>');
 	 $("#column-right .box-heading").wrap('<div class="title_inner_block"></div>');
 </script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter30381277 = new Ya.Metrika({id:30381277,
+                    clickmap:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/30381277" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
 </body></html>

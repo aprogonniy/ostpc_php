@@ -1,0 +1,5 @@
+name = Uniq tools
+description = Backend functionality for frontend views.
+package = Uniq modules
+version = VERSION
+core = 7.x

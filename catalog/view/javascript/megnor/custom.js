@@ -279,7 +279,7 @@ $(document).ready(function(){productCarouselAutoSet();});
 function productListAutoSet() { 
 	$("#content .productbox-grid").each(function(){
 		var objectID = $(this).attr('id');
-		if(objectID.length >0){
+		if(objectID && objectID.length >0){
 			if(widthClassOptions[objectID.replace('-grid','')])
 				var myDefClass= widthClassOptions[objectID.replace('-grid','')];
 		}else{

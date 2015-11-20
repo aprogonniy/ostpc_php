@@ -35,9 +35,12 @@
 <?php } ?>
 <!-- Megnor www.templatemela.com - Start-->
 <?php if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
-$http_type = "https:";} else {$http_type = "http:";} 
- ?><link href='<?php echo $http_type;?>//fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
-<link href='<?php echo $http_type;?>//fonts.googleapis.com/css?family=Della+Respira' rel='stylesheet' type='text/css'>
+$http_type = "https:";
+    } else {
+    $http_type = "http:";
+    }
+ ?><link href='<?php if(isset($http_type)) { echo $http_type; } ?>//fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
+<link href='<?php if(isset($http_type)) { echo $http_type; } ?>//fonts.googleapis.com/css?family=Della+Respira' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $this->config->get('config_template') ?>/stylesheet/megnor/custom.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $this->config->get('config_template') ?>/stylesheet/megnor/carousel.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $this->config->get('config_template') ?>/stylesheet/megnor/responsive.css" />
@@ -68,10 +71,6 @@ $http_type = "https:";} else {$http_type = "http:";}
 <script type="text/javascript" src="<?php echo $script; ?>"></script>
 <?php } ?>
 
-<script src="catalog/view/javascript/megnor/sweetalert.min.js"></script>
- <link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $this->config->get('config_template') ?>/stylesheet/megnor/sweetalert.css">
-
-
 <!--[if lt IE 7]>
 <script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
 <script type="text/javascript">
@@ -79,67 +78,7 @@ DD_belatedPNG.fix('#logo img');
 </script>
 <![endif]-->
 		
-<script> 
-$(document).ready(function() {
-$("#kievstar").click(function(){
-	swal({   
-		title: "Киевстар",   
-		text: "Для того, чтобы связаться с нами,\n наберите +38 (097) 979 3829",
-		allowEscapeKey: true,
-		allowOutsideClick: true,
-		imageUrl:"catalog/view/theme/OPC040084/image/PhoneIcons/kievstar.png",
-		imageSize: "80x80",
-		confirmButtonText: "OK" 
-	});
-});
-$("#kyiv").click(function(){
-	swal({   
-		title: "Киев",   
-		text: "Для того, чтобы связаться с нами,\n наберите +38 (044) 209 4022",
-		allowEscapeKey: true,
-		allowOutsideClick: true,
-		imageUrl:"catalog/view/theme/OPC040084/image/PhoneIcons/kyiv.png",
-		imageSize: "80x80",
-		confirmButtonText: "OK" 
-	});
-});
-$("#kharkiv").click(function(){
-	swal({   
-		title: "Харьков",   
-		text: "Для того, чтобы связаться с нами,\n наберите +38 (057) 713 7244",
-		allowEscapeKey: true,
-		allowOutsideClick: true,
-		imageUrl:"catalog/view/theme/OPC040084/image/PhoneIcons/kharkiv.png",
-		imageSize: "80x80",
-		confirmButtonText: "OK" 
-	});
-});
-$("#mts").click(function(){
-	swal({   
-		title: "МТС",   
-		text: "Для того, чтобы связаться с нами,\n наберите +38 (066) 055 4401",
-		allowEscapeKey: true,
-		allowOutsideClick: true,
-		imageUrl:"catalog/view/theme/OPC040084/image/PhoneIcons/mts1.png",
-		imageSize: "80x80",
-		confirmButtonText: "OK" 
-	});
-});
-$("#life").click(function(){
-	swal({   
-		title: "Лайф",   
-		text: "Для того, чтобы связаться с нами,\n наберите +38 (063) 273 1963",
-		allowEscapeKey: true,
-		allowOutsideClick: true,
-		imageUrl:"catalog/view/theme/OPC040084/image/PhoneIcons/life1.png",
-		imageSize: "80x80",
-		confirmButtonText: "OK" 
-	});
-});
-
-});
-
-</script>			  
+			  
 <?php if ($stores) { ?>
 <script type="text/javascript"><!--
 $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></iframe>');<?php } ?>});//--></script>
@@ -150,7 +89,7 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
 <!--[if lt IE 9]><script type="text/javascript" src="catalog/view/javascript/megnor/respond.min.js"></script><![endif]-->
 <!-- TemplateMela www.templatemela.com - End -->
 </head>
-<body class="<?php echo $body_class; ?>">
+<body class="<?php if(isset($body_class)) {echo $body_class;} ?>">
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-546e6f083234f682" async="async"></script>
@@ -158,7 +97,7 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
     <!-- Start SiteHeart code -->
     <script>
     (function(){
-    var widget_id = 743899;
+    var widget_id = 777848;
     _shcp =[{widget_id : widget_id}];
     var lang =(navigator.language || navigator.systemLanguage
     || navigator.userLanguage ||"en")
@@ -179,31 +118,31 @@ $(document).ready(function() {<?php foreach ($stores as $store) { ?>$('body').pr
 <header id="header-container_main">
 <header id="header-container">
 	<div id="header">
-	<div class="header-top-phones">
-		<div class = "phone-to-image"> 
-			<img class = "phoneIcon" id = "kharkiv" src="catalog/view/theme/OPC040084/image/PhoneIcons/kharkiv.png"/>
-			<span class="phoneNumber">+38(057) 713 7244</span>
-		</div>
-		<div class = "phone-to-image">
-			<img class = "phoneIcon" id = "kyiv" src="catalog/view/theme/OPC040084/image/PhoneIcons/kyiv.png"/>		
-			<span class="phoneNumber">+38(044) 209 4022</span>
-		</div>
-		<div class = "phone-to-image">
-			<img class = "phoneIcon" id = "kievstar" src="catalog/view/theme/OPC040084/image/PhoneIcons/kievstar.png"/>		
-			<span class="phoneNumber">+38(097) 979 3829</span>
-		</div>
-		<div class = "phone-to-image"> 
-			<img class = "phoneIcon" id = "life" src="catalog/view/theme/OPC040084/image/PhoneIcons/life1.png"/>	
-			<span class="phoneNumber">+38(063) 273 1963</span>
-		</div>
-		<div class = "phone-to-image"> 
-			<img class = "phoneIcon" id = "mts" src="catalog/view/theme/OPC040084/image/PhoneIcons/mts1.png"/>
-			<span class="phoneNumber">+38(066) 055 4401</span>
-		</div>
-	</div>
+        <div class="header-top-phones">
+            <div>
+                <i class="sprite sprite-kharkiv"></i>
+                <span>+38 (057) 713 7244</span>
+            </div>
+            <div>
+                <i class="sprite sprite-kyiv"></i>
+                <span>+38 (044) 209 4022</span>
+            </div>
+            <div>
+                <i class="sprite sprite-kievstar"></i>
+                <span>+38 (097) 979 3829</span>
+            </div>
+            <div>
+                <i class="sprite sprite-life1"></i>
+                <span>+38 (063) 273 1963</span>
+            </div>
+            <div>
+                <i class="sprite sprite-mts1"></i>
+                <span>+38 (066) 055 4401</span>
+            </div>
+        </div>
 		<div class="header-left">  <!--megnor 'header-left' start -->
 		<div class="custom_footer_main column">
-			<?php echo $content_header_block; ?>
+			<?php //if($content_header_block) echo $content_header_block; ?>
 	</div>
 				<!--megnor added -->
 		<div class="tm_headerlinkmenu">
