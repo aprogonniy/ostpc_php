@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `aprogonn_med`
+-- Database: `medtehnik`
 --
 
 -- --------------------------------------------------------
@@ -462,6 +462,8 @@ CREATE TABLE IF NOT EXISTS `oc_category_description` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `meta_description` varchar(255) NOT NULL,
+  `currency_rate` DECIMAL(5,2),
+  `increase_rate` DECIMAL(5,2) DEFAULT 1,
   `meta_keyword` varchar(255) NOT NULL,
   PRIMARY KEY (`category_id`,`language_id`),
   KEY `name` (`name`)

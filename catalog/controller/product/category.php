@@ -94,6 +94,8 @@ class ControllerProductCategory extends Controller {
 		if ($category_info) {
 			$this->document->setTitle($category_info['name']);
 			$this->document->setDescription($category_info['meta_description']);
+			$this->document->setCurrencyRate($category_info['currency_rate']);
+			$this->document->setIncreaseRate($category_info['increase_rate']);
 			$this->document->setKeywords($category_info['meta_keyword']);
 			$this->document->addScript('catalog/view/javascript/jquery/jquery.total-storage.min.js');
 

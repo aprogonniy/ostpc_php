@@ -18,6 +18,8 @@ $_['column_action']          = 'Действие';
 $_['entry_name']             = 'Название категории:';
 $_['entry_meta_keyword'] 	 = 'META Keywords:<br/><span class="help">Мета-тег "Ключевые слова"</span>';
 $_['entry_meta_description'] = 'META Description:<br/><span class="help">Мета-тег "Описание"</span>';
+$_['entry_currency_rate'] = 'Курс валюты: <br/><span class="help">В формате "8.50"(через точку)</span>';
+$_['entry_increase_rate'] = 'Повышение цены: <br/><span class="help">В формате "1.5"(во сколько раз, через точку)</span>';
 $_['entry_description']      = 'Описание:';
 $_['entry_parent']         	 = 'Родительская категория:';
 $_['entry_filter']           = 'Фильтры:<br /><span class="help">(Автодополнение)</span>';

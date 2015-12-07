@@ -18,6 +18,8 @@ $_['column_action']          = 'Action';
 $_['entry_name']             = 'Category Name:';
 $_['entry_meta_keyword'] 	 = 'Meta Tag Keywords:';
 $_['entry_meta_description'] = 'Meta Tag Description:';
+$_['entry_currency_rate'] 	 = 'Currency rate:';
+$_['entry_increase_rate'] 	 = 'Increase rate:';
 $_['entry_description']      = 'Description:';
 $_['entry_parent']           = 'Parent:';
 $_['entry_filter']           = 'Filters:<br /><span class="help">(Autocomplete)</span>';

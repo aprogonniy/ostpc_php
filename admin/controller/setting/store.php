@@ -479,7 +479,6 @@ class ControllerSettingStore extends Controller {
 		} else {
 			$this->data['config_meta_description'] = '';
 		}
-
 		if (isset($this->request->post['config_layout_id'])) {
 			$this->data['config_layout_id'] = $this->request->post['config_layout_id'];
 		} elseif (isset($store_info['config_layout_id'])) {

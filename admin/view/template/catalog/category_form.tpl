@@ -36,6 +36,14 @@
                 <td><?php echo $entry_meta_description; ?></td>
                 <td><textarea name="category_description[<?php echo $language['language_id']; ?>][meta_description]" cols="40" rows="5"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['meta_description'] : ''; ?></textarea></td>
               </tr>
+           	   <tr>
+                <td><?php echo $entry_currency_rate; ?></td>
+                <td><input type="text" value = "<?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['currency_rate'] : ''; ?>" name="category_description[<?php echo $language['language_id']; ?>][currency_rate]"></input></td>
+              </tr>
+				<tr>
+                <td><?php echo $entry_increase_rate; ?></td>
+                <td><input type="text" value = "<?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['increase_rate'] : ''; ?>" name="category_description[<?php echo $language['language_id']; ?>][increase_rate]"></input></td>
+              </tr>
               <tr>
                 <td><?php echo $entry_meta_keyword; ?></td>
                 <td><textarea name="category_description[<?php echo $language['language_id']; ?>][meta_keyword]" cols="40" rows="5"><?php echo isset($category_description[$language['language_id']]) ? $category_description[$language['language_id']]['meta_keyword'] : ''; ?></textarea></td>
